@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://predictablynoisy.com</id>
+  <title>ddanieltan.com</title>
+  <updated>2021-01-03T07:19:44.384041+00:00</updated>
+  <link href="https://predictablynoisy.com"/>
+  <link href="https://predictablynoisy.com/index/atom.xml"/>
+  <generator uri="https://ablog.readthedocs.org" version="0.10.12">ABlog</generator>
+  <entry>
+    <id>https://predictablynoisy.com/posts/2021/template_md/</id>
+    <title>Hello World</title>
+    <updated>2020-01-02T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;lorem ipsum balskd
+sadkajl
+sadkljadas&lt;/p&gt;
+&lt;img alt="Alt Text" src="https://media.giphy.com/media/l0HlMZrXA2H7aqpwI/giphy.gif" /&gt;
+</content>
+    <link href="https://predictablynoisy.com/posts/2021/template_md/" rel="alternate"/>
+    <published>2020-01-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://predictablynoisy.com/posts/2021/data_modelling/</id>
+    <title>data-modeling</title>
+    <updated>2020-12-01T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;Consider the&lt;/p&gt;
+</content>
+    <link href="https://predictablynoisy.com/posts/2021/data_modelling/" rel="alternate"/>
+    <published>2020-12-01T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://predictablynoisy.com/posts/2021/0103_hello_world/</id>
+    <title>Hello World</title>
+    <updated>2021-01-03T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;Brand new year, brand new blog.&lt;/p&gt;
+</content>
+    <link href="https://predictablynoisy.com/posts/2021/0103_hello_world/" rel="alternate"/>
+    <published>2021-01-03T00:00:00+00:00</published>
+  </entry>
+</feed>
