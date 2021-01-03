@@ -41,7 +41,7 @@ html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
   "github_url": "https://github.com/ddanieltan",
   "search_bar_text": "Search this site...",
-  "google_analytics_id": "", #TODO
+  "google_analytics_id": "257624351",
   "search_bar_position": "navbar"
 }
 
@@ -54,7 +54,7 @@ html_sidebars = {
     "**": ['recentposts.html', 'archives.html','tags.html'],
     
 }
-blog_baseurl = "https://predictablynoisy.com" #TODO
+blog_baseurl = "https://ddanieltan.com"
 blog_title = "ddanieltan.com"
 blog_path = "index"
 fontawesome_included = True
@@ -74,8 +74,11 @@ extensions += [
 
 # -- OpenGraph config ---------------------------------------------------
 #TODO
-ogp_site_url = "https://predictablynoisy.com"
-ogp_image = "https://predictablynoisy.com/_static/profile-bw.png"
+ogp_site_url = "https://ddanieltan.com"
+ogp_site_name = "https://ddanieltan.com"
+ogp_use_first_image = True
+ogp_image = "https://ddanieltan.com/_static/profile.png"
+ogp_type = "article"
 
 # Temporarily stored as off until we fix it
 jupyter_execute_notebooks = "off" #TODO test
