@@ -41,7 +41,7 @@ html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
   "github_url": "https://github.com/ddanieltan",
   "search_bar_text": "Search this site...",
-  "google_analytics_id": "257624351",
+  "google_analytics_id": "UA-186399663-1",
   "search_bar_position": "navbar"
 }
 
@@ -77,7 +77,7 @@ extensions += [
 ogp_site_url = "https://ddanieltan.com"
 ogp_site_name = "https://ddanieltan.com"
 ogp_use_first_image = True
-ogp_image = "https://ddanieltan.com/_static/profile.png"
+#ogp_image = "https://ddanieltan.com/_static/profile.png"
 ogp_type = "article"
 
 # Temporarily stored as off until we fix it
