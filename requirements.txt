@@ -13,6 +13,7 @@ sphinx
 sphinx-panels
 ablog
 sphinxcontrib-bibtex
+sphinx-autobuild
 sphinxext-opengraph
 pydata-sphinx-theme
 MyST-Parser
