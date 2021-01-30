@@ -1,6 +1,6 @@
 ---
 date : 2020-01-02
-title: Hello World
+title: Jupyter Notebook Template
 ---
 # Testing directives
 
