@@ -1,5 +1,6 @@
 ---
 title : "How to create this blog (Part 1)"
+tags : "drafts"
 ---
 
 # How to create this blog (Part 1)
