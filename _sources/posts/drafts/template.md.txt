@@ -1,5 +1,6 @@
 ---
 title: Markdown Template
+tags: drafts
 ---
 # Testing directives
 
@@ -41,10 +42,9 @@ A long block of test asdnoenfkaf
 asdklasndke
 eknfaefaefelkn
  feakfnefoe
-
-## Margin (not working)
+ 
 ```{margin}
-This should go into margin
+hmm
 ```
 
 ## Heading 3
@@ -75,8 +75,3 @@ Panel body 2
 +++
 Panel footer 2
 ````
-
-## rst syntax
-:::{admonition,tip} Wow, a tip!
-What a great tip!
-:::
