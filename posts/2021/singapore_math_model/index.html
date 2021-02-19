@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="The Singapore Math Model and Data Modeling with NamedTuples" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ddanieltan.com/posts/2021/singapore_math_model.html" />
+  <meta property="og:site_name" content="https://ddanieltan.com" />
+  <meta property="og:description" content="The Singapore Math Model: I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called ..." />
+  <meta property="og:image" content="../../../_images/apples_math_model.png" />
+  <meta property="og:image:alt" content="https://ddanieltan.com" />
+  
+    <title>The Singapore Math Model and Data Modeling with NamedTuples &#8212; 😁 ddanieltan.com  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../index/atom.xml"
+  title="ddanieltan.com"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">😁 ddanieltan.com</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/"><span class="wave">👋</span> About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../">📝 Blog</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ddanieltan" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+<h3>
+  <a href="../../../">✍️ Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../hello_world/"
+      >Hello World</a>
+      <p>01 January 2021</p>
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../index/archive/">🗓️ Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../index/2021/">2021 (2)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-singapore-math-model" class="nav-link">The Singapore Math Model</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#commercialization-and-namesake" class="nav-link">Commercialization and Namesake</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#why-the-singapore-math-model-works" class="nav-link">Why the Singapore Math Model works</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#data-modeling-with-namedtuples" class="nav-link">Data Modeling with NamedTuples</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="the-singapore-math-model-and-data-modeling-with-namedtuples">
+<h1>The Singapore Math Model and Data Modeling with NamedTuples<a class="headerlink" href="#the-singapore-math-model-and-data-modeling-with-namedtuples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-singapore-math-model">
+<h2>The Singapore Math Model<a class="headerlink" href="#the-singapore-math-model" title="Permalink to this headline">¶</a></h2>
+<p>I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called the <strong>Singapore Math Model</strong>.</p>
+<p>The Singapore Math Model is a common approach taught in the Singapore’s primary schools to students to solve math word problems.</p>
+<blockquote>
+<div><p>Andy and Terry have a total of 36 apples. Andy has three times as many apples as Terry.
+How many apples does Terry have?</p>
+</div></blockquote>
+<p>Using the Singapore Math Model approach, children are taught the following:</p>
+<ol class="simple">
+<li><p>Do not jump straight into answering the question, let’s take our time to understand the question first.</p></li>
+<li><p>Let’s draw 2 bar models, one for representing the number of apples Andy has and one for the number of apples Terry has</p></li>
+<li><p>Next, let’s capture that the question has told us the total number of apples is 36</p></li>
+<li><p>Let’s also represent the information that “Andy has 3x apples as Terry” by making sure geometrically, Andy’s bar is 3x the length of Terry’s.</p></li>
+<li><p>Lastly, let’s stay focused by explicitly labelling what the question want’s use to answer - “How many apples does Terry have”</p></li>
+</ol>
+<img alt="../../../_images/apples_math_model.png" class="align-center" src="../../../_images/apples_math_model.png" />
+<p>With this diagram, it becomes a lot easier for children to intuit that there are total of 4 units of apples in this problem, and if they can solve for 1 unit, then they would have figured out how many apples Terry has.</p>
+<p>In this way, the Singapore Math Model serves as a stepping stone for young students to eventually get more familiar with mathematical concepts such as fractional units, unknown variables and algebra.</p>
+<p>Singapore Math Model starts out deceptively simple, but once the approach is mastered, it can even be used to answer questions of surprising difficulty. Here are some challenging examples from past Primary School Leaving Examinations (PSLEs) which 12 year olds in Singapore undertake to graduate.</p>
+<blockquote>
+<div><p>At first, John had some 10 dollar notes and 2 dollar notes in the ratio of 3 : 8.
+After exchanging two 10 dollar notes for two dollar notes, the ratio of 10 dollar notes to 2 dollar notes became 1 : 3.
+Find the amount of money John had.</p>
+</div></blockquote>
+<blockquote>
+<div><p>A farmer has some chickens and ducks. If he sells 2 chickens and 3 ducks every day, there will be 50 chickens left when all the ducks have been sold. If he sells 3 chickens and 2 ducks every day, there will be 25 chickens left when all the ducks have been sold.
+How many ducks and chickens are there?</p>
+</div></blockquote>
+<blockquote>
+<div><p>There are 85 plates of fried noodles for 80 people. Each adult eats 2 plates of fried noodles and every 3 children share 1 plate of fried noodles.
+How many adults and how many children are there?</p>
+</div></blockquote>
+</div>
+<div class="section" id="commercialization-and-namesake">
+<h2>Commercialization and Namesake<a class="headerlink" href="#commercialization-and-namesake" title="Permalink to this headline">¶</a></h2>
+<p>As a Singaporean myself, learning this method as a child, it never occured to me that these techniques were anything out of the ordinary. To me, this was simply Math lessons and I thought Math all around the world was taught the same way.</p>
+<p>So it was really amusing to learn that “Singapore Math” has it’s own <a class="reference external" href="https://en.wikipedia.org/wiki/Singapore_math">wikepedia entry</a>. And, that many publishers have successfully <a class="reference external" href="https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K">sold</a> <a class="reference external" href="https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/">many</a> <a class="reference external" href="https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/">books</a> teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although it’s been marketed as the “Singapore” Math model, I did not find a definitive source evidence stating this method was formulated in Singapore or created by Singaporean educators.</p>
+<p>I believe the Singapore namesake can be attributed to the fact that this framework was successfully adopted by our education system, and that internationally our students score favourably in Mathematics examinations.</p>
+<p>Read more: <a class="reference external" href="https://rafflesiantimes.wordpress.com/2015/02/12/the-math-gician/">here</a> and <a class="reference external" href="https://web.archive.org/web/20131019223239/http://utahsmathfuture.com/usj.pdf/">here</a></p>
+</div>
+</div>
+<div class="section" id="why-the-singapore-math-model-works">
+<h2>Why the Singapore Math Model works<a class="headerlink" href="#why-the-singapore-math-model-works" title="Permalink to this headline">¶</a></h2>
+<p>Beyond being a gentle entry to Algebra, I believe the Singapore Math Model works because it also provided a framework for problem solving.</p>
+<p>Specifically, it provided a framework for students to:</p>
+<ul class="simple">
+<li><p>Take some time to plan how to approach a problem, before diving head in</p></li>
+<li><p>Summarize the key details of a problem into simpler abstractions (eg. word problems into bar model diagrams)</p></li>
+<li><p>And allow themselves to interact with these abstractions to discover the solution</p></li>
+</ul>
+<p>These steps (more generally referred to as <strong>Data Modeling</strong>) is precisely what I really like about the Singapore Math Model method, and are principles I still fall back to when approaching any coding problem. And, while there are many tools in Python (eg. Classes, dataclasses) that offer convenient ways to implement Data Modelling, my favourite is to use NamedTuples from the typing library.</p>
+</div>
+<div class="section" id="data-modeling-with-namedtuples">
+<h2>Data Modeling with NamedTuples<a class="headerlink" href="#data-modeling-with-namedtuples" title="Permalink to this headline">¶</a></h2>
+<p>As an example, let’s tackle a question that has a large amount of information to digest. Take a look at this question prompt for <a class="reference external" href="https://adventofcode.com/2020/day/3">2020’s Advent of Code Day 3</a>.
+This is a really good example of a question that doesn’t require a complex solution, but requires you to 1st digest and structure the important details of the question.</p>
+<p>The solution to this problem boils down to how we structure and handle:</p>
+<ul class="simple">
+<li><p><strong>Trees</strong>, which is what our skiier would potentially collide with. Each tree is made up of a set of x and y point co-ordinate.</p></li>
+<li><p><strong>The Map</strong>, which is made up of a snapshot of where trees are. This snapshot is of a specific height and width and we are told that the pattern of trees cyclically repeats itself both horizontally and vertically.</p></li>
+<li><p><strong>The Path</strong>, which is made of the number of steps to the right and to the bottom which our skiier takes. The problem will throw different paths at us, and we’re expected to always calculate how many trees our skiier collides with.</p></li>
+</ul>
+<p>This is a code equivalent of practising the Singapore Math Model/Data Modeling method, where we summarize the key details from a word problem into abstractions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="k">class</span> <span class="nc">Map</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">trees</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Point</span><span class="p">]</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="k">class</span> <span class="nc">Path</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">map_</span><span class="p">:</span> <span class="n">Map</span>
+    <span class="n">right</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">down</span><span class="p">:</span> <span class="nb">int</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hopefully, even without knowledge of Python syntax, the code above is easy to read and intuit for you. We start first with the abstraction of a Point, which is simply something that contains a x and y coordinate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a point that contains the co-rodinates x=1 and y=1</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point(x=1, y=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we have a Map. The map is made up of a list of many trees. Each tree is a Point with its own unique set of x and y coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+    <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">m1</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">trees</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">m1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Map(trees=[Point(x=1, y=4), Point(x=2, y=2), Point(x=3, y=5)], width=10, height=10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lastly, we have a Path which contains a Map, and a set of instructions for the number of steps right and down that our skiier takes as he/she travels down this mountain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">map_</span> <span class="o">=</span> <span class="n">m1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">down</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Path(map_=Map(trees=[Point(x=1, y=4), Point(x=2, y=2), Point(x=3, y=5)], width=10, height=10), right=2, down=1)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>I hope it has been valuable to see how we have taken a problem that required an entire page to describe, and modelled the key details concisely in just a couple lines of code. The benefit of taking some time upfront to model the question provides greater clarity, and is typically the 1st step in figuring out a solution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you would like to a see a complete solution to the problem using NameTuples, please checkout <a class="reference external" href="https://youtu.be/yc3X4x3RFwk">Joel Grus’s Livecoding session</a> which is where I 1st came across this problem.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../hello_world/">
+      <i class="fa fa-arrow-circle-left"></i> Hello World
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-186399663-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>

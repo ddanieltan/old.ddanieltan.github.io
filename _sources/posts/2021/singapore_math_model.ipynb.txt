@@ -1,0 +1,296 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#  The Singapore Math Model and Data Modeling with NamedTuples\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## The Singapore Math Model\n",
+    "I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international \"export\" called the **Singapore Math Model**.\n",
+    "\n",
+    "The Singapore Math Model is a common approach taught in the Singapore's primary schools to students to solve math word problems. \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> Andy and Terry have a total of 36 apples. Andy has three times as many apples as Terry.\n",
+    "> How many apples does Terry have?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Using the Singapore Math Model approach, children are taught the following:\n",
+    "1. Do not jump straight into answering the question, let's take our time to understand the question first.\n",
+    "2. Let's draw 2 bar models, one for representing the number of apples Andy has and one for the number of apples Terry has\n",
+    "3. Next, let's capture that the question has told us the total number of apples is 36\n",
+    "4. Let's also represent the information that \"Andy has 3x apples as Terry\" by making sure geometrically, Andy's bar is 3x the length of Terry's.\n",
+    "5. Lastly, let's stay focused by explicitly labelling what the question want's use to answer - \"How many apples does Terry have\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```{image} /images/apples_math_model.png\n",
+    ":align: center\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "With this diagram, it becomes a lot easier for children to intuit that there are total of 4 units of apples in this problem, and if they can solve for 1 unit, then they would have figured out how many apples Terry has.\n",
+    "\n",
+    "In this way, the Singapore Math Model serves as a stepping stone for young students to eventually get more familiar with mathematical concepts such as fractional units, unknown variables and algebra."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Singapore Math Model starts out deceptively simple, but once the approach is mastered, it can even be used to answer questions of surprising difficulty. Here are some challenging examples from past Primary School Leaving Examinations (PSLEs) which 12 year olds in Singapore undertake to graduate."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> At first, John had some 10 dollar notes and 2 dollar notes in the ratio of 3 : 8. \n",
+    "> After exchanging two 10 dollar notes for two dollar notes, the ratio of 10 dollar notes to 2 dollar notes became 1 : 3. \n",
+    "> Find the amount of money John had.\n",
+    "\n",
+    "> A farmer has some chickens and ducks. If he sells 2 chickens and 3 ducks every day, there will be 50 chickens left when all the ducks have been sold. If he sells 3 chickens and 2 ducks every day, there will be 25 chickens left when all the ducks have been sold.\n",
+    "> How many ducks and chickens are there?\n",
+    "\n",
+    "> There are 85 plates of fried noodles for 80 people. Each adult eats 2 plates of fried noodles and every 3 children share 1 plate of fried noodles. \n",
+    "> How many adults and how many children are there?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Commercialization and Namesake\n",
+    "As a Singaporean myself, learning this method as a child, it never occured to me that these techniques were anything out of the ordinary. To me, this was simply Math lessons and I thought Math all around the world was taught the same way.\n",
+    "\n",
+    "So it was really amusing to learn that \"Singapore Math\" has it's own [wikepedia entry](https://en.wikipedia.org/wiki/Singapore_math). And, that many publishers have successfully [sold](https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K) [many](https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/) [books](https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/) teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```{note}\n",
+    "Although it's been marketed as the \"Singapore\" Math model, I did not find a definitive source evidence stating this method was formulated in Singapore or created by Singaporean educators. \n",
+    "\n",
+    "I believe the Singapore namesake can be attributed to the fact that this framework was successfully adopted by our education system, and that internationally our students score favourably in Mathematics examinations.\n",
+    "\n",
+    "Read more: [here](https://rafflesiantimes.wordpress.com/2015/02/12/the-math-gician/) and [here](https://web.archive.org/web/20131019223239/http://utahsmathfuture.com/usj.pdf/)\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Why the Singapore Math Model works\n",
+    "Beyond being a gentle entry to Algebra, I believe the Singapore Math Model works because it also provided a framework for problem solving. \n",
+    "\n",
+    "Specifically, it provided a framework for students to:\n",
+    "- Take some time to plan how to approach a problem, before diving head in\n",
+    "- Summarize the key details of a problem into simpler abstractions (eg. word problems into bar model diagrams) \n",
+    "- And allow themselves to interact with these abstractions to discover the solution\n",
+    "\n",
+    "These steps (more generally referred to as **Data Modeling**) is precisely what I really like about the Singapore Math Model method, and are principles I still fall back to when approaching any coding problem. And, while there are many tools in Python (eg. Classes, dataclasses) that offer convenient ways to implement Data Modelling, my favourite is to use NamedTuples from the typing library."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Data Modeling with NamedTuples\n",
+    "\n",
+    "As an example, let's tackle a question that has a large amount of information to digest. Take a look at this question prompt for [2020's Advent of Code Day 3](https://adventofcode.com/2020/day/3). \n",
+    "This is a really good example of a question that doesn't require a complex solution, but requires you to 1st digest and structure the important details of the question.\n",
+    "\n",
+    "The solution to this problem boils down to how we structure and handle:\n",
+    "- **Trees**, which is what our skiier would potentially collide with. Each tree is made up of a set of x and y point co-ordinate.\n",
+    "- **The Map**, which is made up of a snapshot of where trees are. This snapshot is of a specific height and width and we are told that the pattern of trees cyclically repeats itself both horizontally and vertically.\n",
+    "- **The Path**, which is made of the number of steps to the right and to the bottom which our skiier takes. The problem will throw different paths at us, and we're expected to always calculate how many trees our skiier collides with."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This is a code equivalent of practising the Singapore Math Model/Data Modeling method, where we summarize the key details from a word problem into abstractions."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import NamedTuple, List\n",
+    "\n",
+    "class Point(NamedTuple):\n",
+    "    x: int\n",
+    "    y: int\n",
+    "\n",
+    "class Map(NamedTuple):\n",
+    "    trees: List[Point]\n",
+    "    width: int\n",
+    "    height: int\n",
+    "\n",
+    "class Path(NamedTuple):\n",
+    "    map_: Map\n",
+    "    right: int\n",
+    "    down: int\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Hopefully, even without knowledge of Python syntax, the code above is easy to read and intuit for you. We start first with the abstraction of a Point, which is simply something that contains a x and y coordinate."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Point(x=1, y=1)"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# This is a point that contains the co-rodinates x=1 and y=1\n",
+    "p1 = Point(x= 1, y=1)\n",
+    "p1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Next, we have a Map. The map is made up of a list of many trees. Each tree is a Point with its own unique set of x and y coordinates."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Map(trees=[Point(x=1, y=4), Point(x=2, y=2), Point(x=3, y=5)], width=10, height=10)"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "trees = [\n",
+    "    Point(x=1, y=4),\n",
+    "    Point(x=2, y=2),\n",
+    "    Point(x=3, y=5)\n",
+    "]\n",
+    "\n",
+    "m1 = Map(trees, width=10, height=10)\n",
+    "m1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Lastly, we have a Path which contains a Map, and a set of instructions for the number of steps right and down that our skiier takes as he/she travels down this mountain."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Path(map_=Map(trees=[Point(x=1, y=4), Point(x=2, y=2), Point(x=3, y=5)], width=10, height=10), right=2, down=1)"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "path = Path(map_ = m1, right=2, down=1)\n",
+    "path"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Conclusion\n",
+    "I hope it has been valuable to see how we have taken a problem that required an entire page to describe, and modelled the key details concisely in just a couple lines of code. The benefit of taking some time upfront to model the question provides greater clarity, and is typically the 1st step in figuring out a solution."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```{note}\n",
+    "If you would like to a see a complete solution to the problem using NameTuples, please checkout [Joel Grus's Livecoding session](https://youtu.be/yc3X4x3RFwk) which is where I 1st came across this problem.\n",
+    "```"
+   ]
+  }
+ ],
+ "metadata": {
+  "date": "2021-01-14",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  },
+  "title": "The Singapore Math Model and Data Modeling with NamedTuples"
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

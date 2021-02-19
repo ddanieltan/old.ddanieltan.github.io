@@ -2,17 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-02-10T15:01:03.888733+00:00</updated>
+  <updated>2021-02-19T12:45:37.639501+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
   <entry>
-    <id>https://ddanieltan.com/posts/2021/01_hello_world/</id>
+    <id>https://ddanieltan.com/posts/2021/hello_world/</id>
     <title>Hello World</title>
     <updated>2021-01-01T00:00:00+00:00</updated>
     <content type="html">&lt;p&gt;Brand new year, brand new blog!&lt;/p&gt;
 </content>
-    <link href="https://ddanieltan.com/posts/2021/01_hello_world/" rel="alternate"/>
+    <link href="https://ddanieltan.com/posts/2021/hello_world/" rel="alternate"/>
     <published>2021-01-01T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://ddanieltan.com/posts/2021/singapore_math_model/</id>
+    <title>The Singapore Math Model and Data Modeling with NamedTuples</title>
+    <updated>2021-01-14T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called the &lt;strong&gt;Singapore Math Model&lt;/strong&gt;.&lt;/p&gt;
+&lt;img alt="_images/apples_math_model.png" class="align-center" src="_images/apples_math_model.png" /&gt;
+</content>
+    <link href="https://ddanieltan.com/posts/2021/singapore_math_model/" rel="alternate"/>
+    <published>2021-01-14T00:00:00+00:00</published>
   </entry>
 </feed>
