@@ -34,7 +34,7 @@
     "2. Let's draw 2 bar models, one for representing the number of apples Andy has and one for the number of apples Terry has\n",
     "3. Next, let's capture that the question has told us the total number of apples is 36\n",
     "4. Let's also represent the information that \"Andy has 3x apples as Terry\" by making sure geometrically, Andy's bar is 3x the length of Terry's.\n",
-    "5. Lastly, let's stay focused by explicitly labelling what the question want's use to answer - \"How many apples does Terry have\""
+    "5. Lastly, let's stay focused by explicitly labelling what the question we have to answer - \"How many apples does Terry have\""
    ]
   },
   {
@@ -59,7 +59,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Singapore Math Model starts out deceptively simple, but once the approach is mastered, it can even be used to answer questions of surprising difficulty. Here are some challenging examples from past Primary School Leaving Examinations (PSLEs) which 12 year olds in Singapore undertake to graduate."
+    "Singapore Math Model starts out deceptively simple, but once the approach is mastered, it can even be used to answer questions of surprising difficulty. Here are some more challenging examples from past Primary School Leaving Examinations (PSLEs) which 12 year olds in Singapore undertake to graduate."
    ]
   },
   {
@@ -84,7 +84,7 @@
     "## Commercialization and Namesake\n",
     "As a Singaporean myself, learning this method as a child, it never occured to me that these techniques were anything out of the ordinary. To me, this was simply Math lessons and I thought Math all around the world was taught the same way.\n",
     "\n",
-    "So it was really amusing to learn that \"Singapore Math\" has it's own [wikepedia entry](https://en.wikipedia.org/wiki/Singapore_math). And, that many publishers have successfully [sold](https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K) [many](https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/) [books](https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/) teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education."
+    "So, it was really fascinating to learn that \"Singapore Math\" is very much a \"thing\". It has it's own [wikepedia entry](https://en.wikipedia.org/wiki/Singapore_math) and publishers have successfully [sold](https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K) [many](https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/) [books](https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/) teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education."
    ]
   },
   {
@@ -112,7 +112,7 @@
     "- Summarize the key details of a problem into simpler abstractions (eg. word problems into bar model diagrams) \n",
     "- And allow themselves to interact with these abstractions to discover the solution\n",
     "\n",
-    "These steps (more generally referred to as **Data Modeling**) is precisely what I really like about the Singapore Math Model method, and are principles I still fall back to when approaching any coding problem. And, while there are many tools in Python (eg. Classes, dataclasses) that offer convenient ways to implement Data Modelling, my favourite is to use NamedTuples from the typing library."
+    "These steps (more generally referred to as **Data Modeling**) is what I like best about the Singapore Math Model method. These are universaly principles I still fall back on when approaching any coding problem. While there are many tools in Python (eg. Classes, dataclasses) that offer convenient ways to implement Data Modelling, my favourite is to use NamedTuples from the [typing library](https://docs.python.org/3/library/typing.html)."
    ]
   },
   {
@@ -257,7 +257,7 @@
    "metadata": {},
    "source": [
     "## Conclusion\n",
-    "I hope it has been valuable to see how we have taken a problem that required an entire page to describe, and modelled the key details concisely in just a couple lines of code. The benefit of taking some time upfront to model the question provides greater clarity, and is typically the 1st step in figuring out a solution."
+    "I hope it has been valuable to see how we have taken a problem that required an entire page to describe, and modelled the key details concisely in just a couple lines of code. The benefit of taking some time upfront to model the question provides greater clarity, and is an invaluable part of my problem solving toolkit."
    ]
   },
   {
