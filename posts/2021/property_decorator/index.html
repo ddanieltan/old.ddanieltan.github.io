@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Using the @property decorator in data science projects" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ddanieltan.com/posts/2021/property_decorator.html" />
+  <meta property="og:site_name" content="https://ddanieltan.com" />
+  <meta property="og:description" content="The @property decorator is a simple but useful Python feature that can make your data science code easier to read and write. The scenario: Let’s say you have just completed a small but useful data ..." />
+  <meta property="og:image" content="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" />
+  <meta property="og:image:alt" content="IMAGE ALT TEXT" />
+  
+    <title>Using the @property decorator in data science projects &#8212; 😁 ddanieltan.com  documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../index/atom.xml"
+  title="ddanieltan.com"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../">
+    
+      <p class="title">😁 ddanieltan.com</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../about/"><span class="wave">👋</span> About me</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../">📝 Blog</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ddanieltan" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+<h3>
+  <a href="../../../">✍️ Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../singapore_math_model/"
+      >The Singapore Math Model and Data Modeling with NamedTuples</a>
+      <p>14 January 2021</p>
+  </li>
+  
+  <li>
+    <a href="../hello_world/"
+      >Hello World</a>
+      <p>01 January 2021</p>
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../index/archive/">🗓️ Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../index/2021/">2021 (3)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-scenario" class="nav-link">The scenario</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#illustration" class="nav-link">Illustration</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#example-issues" class="nav-link">Example issues</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#accidentally-overwriting-or-deleting-parameters" class="nav-link">Accidentally overwriting or deleting parameters</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#accessing-parameters-at-the-wrong-time" class="nav-link">Accessing parameters at the wrong time</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#library-code-vs-user-code" class="nav-link">Library code vs. User code</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-property-decorator" class="nav-link">The @property decorator</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#getters-setters-and-deleters" class="nav-link">Getters, setters and deleters</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#readability" class="nav-link">Readability</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#encourages-the-good-habit-of-using-underscore-prefix" class="nav-link">Encourages the good habit of using underscore prefix</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="using-the-property-decorator-in-data-science-projects">
+<h1>Using the &#64;property decorator in data science projects<a class="headerlink" href="#using-the-property-decorator-in-data-science-projects" title="Permalink to this headline">¶</a></h1>
+<p>The &#64;property decorator is a simple but useful Python feature that can make your data science code easier to read and write.</p>
+<div class="section" id="the-scenario">
+<h2>The scenario<a class="headerlink" href="#the-scenario" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say you have just completed a small but useful data science project that looks something like this.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model A</span>
+<span class="c1"># Mock example of a simple data science project</span>
+
+<span class="kn">import</span> <span class="nn">CustomDataPrep</span>
+<span class="kn">import</span> <span class="nn">CustomFeatureEngineering</span>
+<span class="kn">import</span> <span class="nn">CustomModel</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">data_prep</span><span class="p">()</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">CustomFeatureEngineering</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">features</span><span class="o">.</span><span class="n">make_features</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">CustomModel</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">make_predictions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">A</span></code>’s code is short and sweet and is written following <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming (OOP)</a> principles which results in nicely defined and modular classes handling each section of the pipeline.</p>
+<p>You see an opportunity to contribute to the team by sharing these modules.
+For example, we can imagine that the <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> class might be useful for another data scientist who also requires data preparation. Likewise, perhaps the <code class="docutils literal notranslate"><span class="pre">CustomFeatureEngineering</span></code> class can make the development cycle for a data scientist starting on a brand new project that much quicker by reimplementing a common set of features.</p>
+</div>
+<div class="section" id="illustration">
+<h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h2>
+<p>Let’s sketch out how our <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> class might look in this scenario.
+Briefly, let us imagine that this class does the following:</p>
+<ul class="simple">
+<li><p>Records the name of a fictional database <code class="docutils literal notranslate"><span class="pre">data.db</span></code></p></li>
+<li><p>Records a start and end date</p></li>
+<li><p>Does some common data cleaning eg. fill in missing values, convert dtypes</p></li>
+<li><p>Saves final data as a pandas dataframe</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="k">class</span> <span class="nc">CustomDataPrep</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class loads our data between a start and end date</span>
+<span class="sd">    Performs some data cleaning</span>
+<span class="sd">    Then saves the prepped data as a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="s1">&#39;data.db&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">data_prep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;This function loads data, cleans data and saves the final df&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the sake of brevity, I’ll leave out the code for our fictional functions <code class="docutils literal notranslate"><span class="pre">load_data</span></code> and <code class="docutils literal notranslate"><span class="pre">clean_data</span></code>.</p>
+</div>
+</div>
+<div class="section" id="example-issues">
+<h2>Example issues<a class="headerlink" href="#example-issues" title="Permalink to this headline">¶</a></h2>
+<p>The next step is simply to share the code with the team! And it’s really with good intentions, that we do so, because genuinely, classes like the one in our example do have the potential for increasing everyone’s productivity.</p>
+<p>However, it is not out of the question that the following example issues crop up when others try using your code.</p>
+<div class="section" id="accidentally-overwriting-or-deleting-parameters">
+<h3>Accidentally overwriting or deleting parameters<a class="headerlink" href="#accidentally-overwriting-or-deleting-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Perhaps accidentally (within a long script), a crucial parameter was overwritten. This might cause the main script to break, or worse, the script does not break but instead is working on erroneous data that only gets caught much later down the line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+
+<span class="c1">### many lines of code later</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="s1">&#39;wrong.db&#39;</span> <span class="c1"># accidental overwriting of our data source</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">data_prep</span><span class="p">()</span> <span class="c1"># This either breaks or (worse) silently is working on the wrong data source</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-parameters-at-the-wrong-time">
+<h3>Accessing parameters at the wrong time<a class="headerlink" href="#accessing-parameters-at-the-wrong-time" title="Permalink to this headline">¶</a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> is initialized, the <code class="docutils literal notranslate"><span class="pre">df</span></code> parameter that will hold our final dataframe is initialized as <code class="docutils literal notranslate"><span class="pre">None</span></code>. Our intention is that the user should first call the <code class="docutils literal notranslate"><span class="pre">data_prep()</span></code> function before trying to access <code class="docutils literal notranslate"><span class="pre">df</span></code>, but nothing actually stops users from accessing <code class="docutils literal notranslate"><span class="pre">df</span></code> at any point in time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">df</span> <span class="c1"># User accessed df but forgot to ran data.data_prep() first</span>
+
+<span class="c1">### many lines of code later</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span> <span class="c1"># User discovered df is empty way too late</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-51-28b17a0e4622&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">df</span> <span class="c1"># User accessed df but forgot to ran data.data_prep() first</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">### many lines of code later</span>
+
+<span class="ne">AttributeError</span>: &#39;CustomDataPrep&#39; object has no attribute &#39;df&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="library-code-vs-user-code">
+<h2>Library code vs. User code<a class="headerlink" href="#library-code-vs-user-code" title="Permalink to this headline">¶</a></h2>
+<p>The above examples are my personal experiences of the concerns between writing Library code vs. User code. I first learnt of this situation from a (rather provacatively named 😝) video - <a class="reference external" href="https://youtu.be/cKPlPJyQrt4">PyData Seattle 2017 - So you want to be a Python Expert?</a> (around the 22:30 mark).</p>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=cKPlPJyQrt4"><img alt="IMAGE ALT TEXT" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" /></a></p>
+<p>The entire section on Library vs User code covers multiple different angles, but in the context of my data science example, I would highlight these key points:</p>
+<ul class="simple">
+<li><p><strong>User code</strong> is code written to solve a specific use case/business problem. In our example, the models other data scientists/teams are going to write would be user code.</p></li>
+<li><p><strong>Library code</strong> is code written to be used by different users, with the goal of making these users more productive and for standardisation. In our example, <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> is the library code.</p></li>
+<li><p>There are <strong>many potential pitfalls and gotchas</strong> for both the author of the library code (who cannot control how his/her library code will be used) and the author of the user code (who either should not or could not modify the library code at runtime).</p></li>
+</ul>
+<p>So really, the question I want to answer is - <strong>How do we write our library code to minimize these potential issues/errors</strong>?</p>
+</div>
+<div class="section" id="the-property-decorator">
+<h2>The &#64;property decorator<a class="headerlink" href="#the-property-decorator" title="Permalink to this headline">¶</a></h2>
+<p>The &#64;property decorator a Python built-in, that allows you to have a little more control over the attributes of your classes. Used correctly, it can minimize some of the issues mentioned above. Here are some examples.</p>
+<div class="section" id="getters-setters-and-deleters">
+<h3>Getters, setters and deleters<a class="headerlink" href="#getters-setters-and-deleters" title="Permalink to this headline">¶</a></h3>
+<p>So recall in our 1st issue, we had a situation where the user of our library code accidentally overwrote the <code class="docutils literal notranslate"><span class="pre">data_source</span></code> attribute. Suppose as the author of the library code, you wanted to give users the ability to inspect <code class="docutils literal notranslate"><span class="pre">data_source</span></code> but you wanted to protect them from accidentally modifying <code class="docutils literal notranslate"><span class="pre">data_source</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomDataPrep</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class loads our data between a start and end date</span>
+<span class="sd">    Performs some data cleaning</span>
+<span class="sd">    Then saves the prepped data as a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span> <span class="o">=</span> <span class="s1">&#39;data.db&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data_source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Users can inspect the data_source attribute</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.db&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Users can&#39;t accidentally modify the data_source attribute</span>
+<span class="c1"># If they try to do so, they trigger an immediate error (fail fast!)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="s1">&#39;wrong.db&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-55-9504165558a4&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># If they try to do so, they trigger an immediate error (fail fast!)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">data</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="s1">&#39;wrong.db&#39;</span>
+
+<span class="ne">AttributeError</span>: can&#39;t set attribute
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you wanted to let users modify any attributes, the &#64;property decorator also allows you to extend a setter or deleter method like so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomDataPrep</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class loads our data between a start and end date</span>
+<span class="sd">    Performs some data cleaning</span>
+<span class="sd">    Then saves the prepped data as a pandas dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span> <span class="o">=</span> <span class="s1">&#39;data.db&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data_source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span>
+    
+    <span class="nd">@data_source</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">data_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_data_source</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span> <span class="o">=</span> <span class="n">new_data_source</span>
+    
+    <span class="nd">@data_source</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">data_source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Users are now allowed to modify data_source</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">CustomDataPrep</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.db&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">data_source</span> <span class="o">=</span> <span class="s1">&#39;new.db&#39;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;new.db&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Or delete them</span>
+<span class="k">del</span> <span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+<span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-49-060b1a3cf789&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Or delete them</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">del</span> <span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">data_source</span>
+
+<span class="nn">&lt;ipython-input-35-796ddc694b1b&gt;</span> in <span class="ni">data_source</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">def</span> <span class="nf">data_source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_source</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="nd">@data_source</span><span class="o">.</span><span class="n">setter</span>
+
+<span class="ne">AttributeError</span>: &#39;CustomDataPrep&#39; object has no attribute &#39;_data_source&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="readability">
+<h3>Readability<a class="headerlink" href="#readability" title="Permalink to this headline">¶</a></h3>
+<p>If you have worked with other OOP languages before (eg. Java, C++) this concept of separating what variables are private or public, properly termed as <a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">Encapsulation</a>, will not be new. Where the &#64;property adds value here is achieving the same result with much less boilerplate, namespace pollution and more readable code.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Using &#64;property</p>
+</div>
+<div class="card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Class</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a</span>
+
+</pre></div>
+</div>
+</div>
+<div class="card-footer docutils">
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Using getter methods</p>
+</div>
+<div class="card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Class</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+    
+    <span class="k">def</span> <span class="nf">get_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a</span>
+</pre></div>
+</div>
+</div>
+<div class="card-footer docutils">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="encourages-the-good-habit-of-using-underscore-prefix">
+<h3>Encourages the good habit of using underscore prefix<a class="headerlink" href="#encourages-the-good-habit-of-using-underscore-prefix" title="Permalink to this headline">¶</a></h3>
+<p>You might have also noticed that when we introduced the property decorator, we also slipped in another change. All the attributes initialized under the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method now have an underscore prefix e.g. <code class="docutils literal notranslate"><span class="pre">_data_source</span></code>.</p>
+<p>This is a PEP8 convention that Python uses to signal that this attribute or method belongs privately to its class. Python (prefering to give more flexibility to users) does not enforce private/public distinctions.</p>
+<p>So practically, the reason why we use this convention is to give our users a subtle hint that they are accessing a private attribute, and to take an extra second to consider if they are writing safe code.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Also, if you use wildcards when importing e.g. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code>, Python will not import any method with an underscore prefix.</p>
+<p>If you’d like to learn more about all the PEP8 naming conventions, you can explore them <a class="reference external" href="https://pep8.org/#descriptive-naming-styles">here</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Ultimately, the dynamics between library and user code covers way more potential issues than what I illustrated in this blog post. But the &#64;property decorator is a small little fix that goes a long way in covering some of the more common issues. I have used it obsessively since learning about it and I hope it provides value for you too.</p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../singapore_math_model/">
+      <i class="fa fa-arrow-circle-left"></i> The Singapore Math Model and Data Modeling with NamedTuples
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-186399663-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>

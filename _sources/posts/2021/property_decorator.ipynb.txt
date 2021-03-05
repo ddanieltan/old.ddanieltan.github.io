@@ -1,0 +1,510 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Using the @property decorator in data science projects\n",
+    "The @property decorator is a simple but useful Python feature that can make your data science code easier to read and write."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## The scenario\n",
+    "Let's say you have just completed a small but useful data science project that looks something like this."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "tags": [
+     "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'CustomDataPrep'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-29-7164cb9ad83a>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;31m# Mock example of a simple data science project\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mCustomDataPrep\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mCustomFeatureEngineering\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mCustomModel\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'CustomDataPrep'"
+     ]
+    }
+   ],
+   "source": [
+    "# Model A\n",
+    "# Mock example of a simple data science project\n",
+    "\n",
+    "import CustomDataPrep\n",
+    "import CustomFeatureEngineering\n",
+    "import CustomModel\n",
+    "\n",
+    "data = CustomDataPrep()\n",
+    "data.data_prep()\n",
+    "\n",
+    "features = CustomFeatureEngineering(data)\n",
+    "features.make_features()\n",
+    "\n",
+    "model = CustomModel(features)\n",
+    "predictions = model.make_predictions()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`Model A`'s code is short and sweet and is written following [Object Oriented Programming (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming) principles which results in nicely defined and modular classes handling each section of the pipeline.\n",
+    "\n",
+    "You see an opportunity to contribute to the team by sharing these modules.\n",
+    "For example, we can imagine that the `CustomDataPrep` class might be useful for another data scientist who also requires data preparation. Likewise, perhaps the `CustomFeatureEngineering` class can make the development cycle for a data scientist starting on a brand new project that much quicker by reimplementing a common set of features."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Illustration\n",
+    "Let's sketch out how our `CustomDataPrep` class might look in this scenario.\n",
+    "Briefly, let us imagine that this class does the following:\n",
+    "- Records the name of a fictional database `data.db`\n",
+    "- Records a start and end date \n",
+    "- Does some common data cleaning eg. fill in missing values, convert dtypes\n",
+    "- Saves final data as a pandas dataframe"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from datetime import datetime\n",
+    "class CustomDataPrep:\n",
+    "    \"\"\"\n",
+    "    This class loads our data between a start and end date\n",
+    "    Performs some data cleaning\n",
+    "    Then saves the prepped data as a pandas dataframe\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    def __init__(self):\n",
+    "        self.data_source = 'data.db'\n",
+    "        self.start_date = datetime(2021,1,1)\n",
+    "        self.end_date = datetime(2021,2,1)\n",
+    "        self.df = None\n",
+    "    \n",
+    "    def data_prep(self):\n",
+    "        \"This function loads data, cleans data and saves the final df\"\n",
+    "        self.df = load_data(start_date = self.start_date, end_date = self.end_date)\n",
+    "        self.df = clean_data(self.df)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "``` {note}\n",
+    "For the sake of brevity, I'll leave out the code for our fictional functions `load_data` and `clean_data`.\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Example issues\n",
+    "The next step is simply to share the code with the team! And it's really with good intentions, that we do so, because genuinely, classes like the one in our example do have the potential for increasing everyone's productivity.\n",
+    "\n",
+    "However, it is not out of the question that the following example issues crop up when others try using your code."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Accidentally overwriting or deleting parameters\n",
+    "Perhaps accidentally (within a long script), a crucial parameter was overwritten. This might cause the main script to break, or worse, the script does not break but instead is working on erroneous data that only gets caught much later down the line."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data = CustomDataPrep()\n",
+    "\n",
+    "### many lines of code later\n",
+    "\n",
+    "data.data_source = 'wrong.db' # accidental overwriting of our data source\n",
+    "\n",
+    "data.data_prep() # This either breaks or (worse) silently is working on the wrong data source"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Accessing parameters at the wrong time\n",
+    "When `CustomDataPrep` is initialized, the `df` parameter that will hold our final dataframe is initialized as `None`. Our intention is that the user should first call the `data_prep()` function before trying to access `df`, but nothing actually stops users from accessing `df` at any point in time."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'CustomDataPrep' object has no attribute 'df'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-51-28b17a0e4622>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mdata\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mCustomDataPrep\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mdf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdf\u001b[0m \u001b[0;31m# User accessed df but forgot to ran data.data_prep() first\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;31m### many lines of code later\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mAttributeError\u001b[0m: 'CustomDataPrep' object has no attribute 'df'"
+     ]
+    }
+   ],
+   "source": [
+    "data = CustomDataPrep()\n",
+    "\n",
+    "df = data.df # User accessed df but forgot to ran data.data_prep() first\n",
+    "\n",
+    "### many lines of code later\n",
+    "\n",
+    "df.info() # User discovered df is empty way too late"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Library code vs. User code\n",
+    "The above examples are my personal experiences of the concerns between writing Library code vs. User code. I first learnt of this situation from a (rather provacatively named 😝) video - [PyData Seattle 2017 - So you want to be a Python Expert?](https://youtu.be/cKPlPJyQrt4) (around the 22:30 mark). "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "[![IMAGE ALT TEXT](http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg)](http://www.youtube.com/watch?v=cKPlPJyQrt4)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The entire section on Library vs User code covers multiple different angles, but in the context of my data science example, I would highlight these key points:\n",
+    "\n",
+    "- **User code** is code written to solve a specific use case/business problem. In our example, the models other data scientists/teams are going to write would be user code. \n",
+    "\n",
+    "- **Library code** is code written to be used by different users, with the goal of making these users more productive and for standardisation. In our example, `CustomDataPrep` is the library code.\n",
+    "\n",
+    "- There are **many potential pitfalls and gotchas** for both the author of the library code (who cannot control how his/her library code will be used) and the author of the user code (who either should not or could not modify the library code at runtime).\n",
+    "\n",
+    "So really, the question I want to answer is - **How do we write our library code to minimize these potential issues/errors**? "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## The @property decorator\n",
+    "The @property decorator a Python built-in, that allows you to have a little more control over the attributes of your classes. Used correctly, it can minimize some of the issues mentioned above. Here are some examples."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Getters, setters and deleters\n",
+    "\n",
+    "So recall in our 1st issue, we had a situation where the user of our library code accidentally overwrote the `data_source` attribute. Suppose as the author of the library code, you wanted to give users the ability to inspect `data_source` but you wanted to protect them from accidentally modifying `data_source`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class CustomDataPrep:\n",
+    "    \"\"\"\n",
+    "    This class loads our data between a start and end date\n",
+    "    Performs some data cleaning\n",
+    "    Then saves the prepped data as a pandas dataframe\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    def __init__(self):\n",
+    "        self._data_source = 'data.db'\n",
+    "        self._start_date = datetime(2021,1,1)\n",
+    "        self._end_date = datetime(2021,2,1)\n",
+    "        self._df = None\n",
+    "    \n",
+    "    @property\n",
+    "    def data_source(self):\n",
+    "        return self._data_source\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'data.db'"
+      ]
+     },
+     "execution_count": 54,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Users can inspect the data_source attribute\n",
+    "data = CustomDataPrep()\n",
+    "data.data_source"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "can't set attribute",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-55-9504165558a4>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;31m# If they try to do so, they trigger an immediate error (fail fast!)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mdata\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mCustomDataPrep\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdata_source\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m'wrong.db'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m: can't set attribute"
+     ]
+    }
+   ],
+   "source": [
+    "# Users can't accidentally modify the data_source attribute\n",
+    "# If they try to do so, they trigger an immediate error (fail fast!)\n",
+    "data = CustomDataPrep()\n",
+    "data.data_source = 'wrong.db'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If you wanted to let users modify any attributes, the @property decorator also allows you to extend a setter or deleter method like so."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class CustomDataPrep:\n",
+    "    \"\"\"\n",
+    "    This class loads our data between a start and end date\n",
+    "    Performs some data cleaning\n",
+    "    Then saves the prepped data as a pandas dataframe\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    def __init__(self):\n",
+    "        self._data_source = 'data.db'\n",
+    "        self._start_date = datetime(2021,1,1)\n",
+    "        self._end_date = datetime(2021,2,1)\n",
+    "        self._df = None\n",
+    "    \n",
+    "    @property\n",
+    "    def data_source(self):\n",
+    "        return self._data_source\n",
+    "    \n",
+    "    @data_source.setter\n",
+    "    def data_source(self, new_data_source):\n",
+    "        self._data_source = new_data_source\n",
+    "    \n",
+    "    @data_source.deleter\n",
+    "    def data_source(self):\n",
+    "        del self._data_source\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'data.db'"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Users are now allowed to modify data_source\n",
+    "data = CustomDataPrep()\n",
+    "data.data_source"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'new.db'"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data.data_source = 'new.db'\n",
+    "data.data_source"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'CustomDataPrep' object has no attribute '_data_source'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-49-060b1a3cf789>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;31m# Or delete them\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;32mdel\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdata_source\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdata_source\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-35-796ddc694b1b>\u001b[0m in \u001b[0;36mdata_source\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;34m@\u001b[0m\u001b[0mproperty\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     15\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mdata_source\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 16\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_data_source\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     17\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m     \u001b[0;34m@\u001b[0m\u001b[0mdata_source\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msetter\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mAttributeError\u001b[0m: 'CustomDataPrep' object has no attribute '_data_source'"
+     ]
+    }
+   ],
+   "source": [
+    "# Or delete them\n",
+    "del data.data_source\n",
+    "data.data_source"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Readability\n",
+    "If you have worked with other OOP languages before (eg. Java, C++) this concept of separating what variables are private or public, properly termed as [Encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)), will not be new. Where the @property adds value here is achieving the same result with much less boilerplate, namespace pollution and more readable code."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "````{panels}\n",
+    "Using @property\n",
+    "^^^\n",
+    "```\n",
+    "def Class:\n",
+    "    def __init__(self):\n",
+    "        self._a = 'a'\n",
+    "    \n",
+    "    @property\n",
+    "    def a(self):\n",
+    "        return self._a\n",
+    "\n",
+    "```\n",
+    "+++\n",
+    "\n",
+    "---\n",
+    "\n",
+    "Using getter methods\n",
+    "^^^\n",
+    "```\n",
+    "def Class:\n",
+    "    def __init__(self):\n",
+    "        self._a = 'a'\n",
+    "    \n",
+    "    def get_a(self):\n",
+    "        return self._a\n",
+    "```\n",
+    "+++\n",
+    "\n",
+    "````"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Encourages the good habit of using underscore prefix\n",
+    "You might have also noticed that when we introduced the property decorator, we also slipped in another change. All the attributes initialized under the `__init__()` method now have an underscore prefix e.g. `_data_source`. \n",
+    "\n",
+    "This is a PEP8 convention that Python uses to signal that this attribute or method belongs privately to its class. Python (prefering to give more flexibility to users) does not enforce private/public distinctions.\n",
+    "\n",
+    "So practically, the reason why we use this convention is to give our users a subtle hint that they are accessing a private attribute, and to take an extra second to consider if they are writing safe code."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```{tip}\n",
+    "\n",
+    "Also, if you use wildcards when importing e.g. `from module import *`, Python will not import any method with an underscore prefix.\n",
+    "\n",
+    "If you'd like to learn more about all the PEP8 naming conventions, you can explore them [here](https://pep8.org/#descriptive-naming-styles)\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Conclusion\n",
+    "Ultimately, the dynamics between library and user code covers way more potential issues than what I illustrated in this blog post. But the @property decorator is a small little fix that goes a long way in covering some of the more common issues. I have used it obsessively since learning about it and I hope it provides value for you too."
+   ]
+  }
+ ],
+ "metadata": {
+  "date": "2021-02-20",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  },
+  "tags": "",
+  "title": "Using the @property decorator in data science projects"
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
