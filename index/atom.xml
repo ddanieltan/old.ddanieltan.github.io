@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-03-05T09:18:34.313761+00:00</updated>
+  <updated>2021-03-05T09:51:45.604156+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -30,7 +30,7 @@
     <title>Using the @property decorator in data science projects</title>
     <updated>2021-02-20T00:00:00+00:00</updated>
     <content type="html">&lt;p&gt;The &amp;#64;property decorator is a simple but useful Python feature that can make your data science code easier to read and write.&lt;/p&gt;
-&lt;img alt="IMAGE ALT TEXT" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" /&gt;
+&lt;img alt="James Powell" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" /&gt;
 </content>
     <link href="https://ddanieltan.com/posts/2021/property_decorator/" rel="alternate"/>
     <published>2021-02-20T00:00:00+00:00</published>
