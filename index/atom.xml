@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-03-05T09:51:45.604156+00:00</updated>
+  <updated>2021-03-20T09:56:51.897539+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml"/>
   <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
@@ -34,5 +34,15 @@
 </content>
     <link href="https://ddanieltan.com/posts/2021/property_decorator/" rel="alternate"/>
     <published>2021-02-20T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://ddanieltan.com/posts/2021/why_omscs/</id>
+    <title>Why I Chose OMSCS</title>
+    <updated>2021-03-20T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;I started my first semester of Georgia Tech’s Online Masters of Science in Computer Science (&lt;a class="reference external" href="https://omscs.gatech.edu/"&gt;OMSCS&lt;/a&gt;) this year. In this blog, I share more about why I chose this programme and what are the steps you need to take if you are also thinking of applying.&lt;/p&gt;
+&lt;img alt="Georgia Tech's &amp;quot;Tech Tower&amp;quot;" src="https://www.ajc.com/resizer/YlHasCQ3suejKGFN_F8zSJztgpU=/1066x600/cloudfront-us-east-1.images.arcpublishing.com/ajc/NNMZBF7F4VEBXHYFT2B4DWCWOQ.jpg" /&gt;
+</content>
+    <link href="https://ddanieltan.com/posts/2021/why_omscs/" rel="alternate"/>
+    <published>2021-03-20T00:00:00+00:00</published>
   </entry>
 </feed>

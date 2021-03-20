@@ -15,7 +15,8 @@
   
     <title>Using the @property decorator in data science projects &#8212; 😁 ddanieltan.com  documentation</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -27,10 +28,6 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -41,7 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -90,49 +87,51 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+
+    
     <a class="navbar-brand" href="../../../">
-    
       <p class="title">😁 ddanieltan.com</p>
-    
     </a>
+    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../about/"><span class="wave">👋</span> About me</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../../">📝 Blog</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  <span class="wave">
+   👋
+  </span>
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../">
+  📝 Blog
+ </a>
+</li>
+
         
       </ul>
-
 
       <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/ddanieltan" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -142,12 +141,20 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
 <h3>
   <a href="../../../">✍️ Recent Posts</a>
 </h3>
 <ul>
    
+  <li>
+    <a href="../why_omscs/"
+      >Why I Chose OMSCS</a>
+      <p>20 March 2021</p>
+  </li>
+  
   <li>
     <a href="../singapore_math_model/"
       >The Singapore Math Model and Data Modeling with NamedTuples</a>
@@ -168,12 +175,24 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (3)</a>
+    <a href="../../../index/2021/">2021 (4)</a>
   </li>
    
 </ul>
 
-          </div>
+<h3>
+  <a href="../../../index/tag/">🏷️ Tags</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (1)</a>
+  </li>
+     
+</ul>
+
+            </div>
+            
           
 
           
@@ -184,57 +203,68 @@
 </div>
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#the-scenario" class="nav-link">The scenario</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#illustration" class="nav-link">Illustration</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#example-issues" class="nav-link">Example issues</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#accidentally-overwriting-or-deleting-parameters" class="nav-link">Accidentally overwriting or deleting parameters</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#accessing-parameters-at-the-wrong-time" class="nav-link">Accessing parameters at the wrong time</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#library-code-vs-user-code" class="nav-link">Library code vs. User code</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#the-property-decorator" class="nav-link">The @property decorator</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#getters-setters-and-deleters" class="nav-link">Getters, setters and deleters</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#readability" class="nav-link">Readability</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#encourages-the-good-habit-of-using-underscore-prefix" class="nav-link">Encourages the good habit of using underscore prefix</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#conclusion" class="nav-link">Conclusion</a>
-        </li>
-    
-    </ul>
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-scenario">
+   The scenario
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#illustration">
+   Illustration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-issues">
+   Example issues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accidentally-overwriting-or-deleting-parameters">
+     Accidentally overwriting or deleting parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-parameters-at-the-wrong-time">
+     Accessing parameters at the wrong time
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#library-code-vs-user-code">
+   Library code vs. User code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-property-decorator">
+   The @property decorator
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getters-setters-and-deleters">
+     Getters, setters and deleters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#readability">
+     Readability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encourages-the-good-habit-of-using-underscore-prefix">
+     Encourages the good habit of using underscore prefix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -242,6 +272,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -612,6 +645,13 @@ Briefly, let us imagine that this class does the following:</p>
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
+     
+    <a href="../why_omscs/">
+      Why I Chose OMSCS <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
     
   </span>
 </div>
@@ -633,7 +673,7 @@ Briefly, let us imagine that this class does the following:</p>
     </div>
 
     
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     
