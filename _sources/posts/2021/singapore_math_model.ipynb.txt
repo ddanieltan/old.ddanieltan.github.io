@@ -84,7 +84,7 @@
     "## Commercialization and Namesake\n",
     "As a Singaporean myself, learning this method as a child, it never occured to me that these techniques were anything out of the ordinary. To me, this was simply Math lessons and I thought Math all around the world was taught the same way.\n",
     "\n",
-    "So, it was really fascinating to learn that \"Singapore Math\" is very much a \"thing\". It has it's own [wikepedia entry](https://en.wikipedia.org/wiki/Singapore_math) and publishers have successfully [sold](https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K) [many](https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/) [books](https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/) teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education."
+    "So, it was really fascinating to learn that \"Singapore Math\" is very much a \"thing\". It has it's own [wikipedia entry](https://en.wikipedia.org/wiki/Singapore_math) and publishers have successfully [sold](https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K) [many](https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/) [books](https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/) teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education."
    ]
   },
   {

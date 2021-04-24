@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-03-20T09:56:51.897539+00:00</updated>
+  <updated>2021-04-24T06:40:30.174986+00:00</updated>
   <link href="https://ddanieltan.com"/>
-  <link href="https://ddanieltan.com/index/atom.xml"/>
-  <generator uri="https://ablog.readthedocs.org" version="0.10.13">ABlog</generator>
+  <link href="https://ddanieltan.com/index/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
   <entry>
     <id>https://ddanieltan.com/posts/2021/hello_world/</id>
     <title>Hello World</title>
@@ -13,6 +13,7 @@
     <content type="html">&lt;p&gt;Brand new year, brand new blog!&lt;/p&gt;
 </content>
     <link href="https://ddanieltan.com/posts/2021/hello_world/" rel="alternate"/>
+    <summary>Brand new year, brand new blog!</summary>
     <published>2021-01-01T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -23,6 +24,7 @@
 &lt;img alt="_images/apples_math_model.png" class="align-center" src="_images/apples_math_model.png" /&gt;
 </content>
     <link href="https://ddanieltan.com/posts/2021/singapore_math_model/" rel="alternate"/>
+    <summary>I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called the Singapore Math Model.</summary>
     <published>2021-01-14T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -33,6 +35,7 @@
 &lt;img alt="James Powell" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" /&gt;
 </content>
     <link href="https://ddanieltan.com/posts/2021/property_decorator/" rel="alternate"/>
+    <summary>The @property decorator is a simple but useful Python feature that can make your data science code easier to read and write.James Powell</summary>
     <published>2021-02-20T00:00:00+00:00</published>
   </entry>
   <entry>
@@ -43,6 +46,8 @@
 &lt;img alt="Georgia Tech's &amp;quot;Tech Tower&amp;quot;" src="https://www.ajc.com/resizer/YlHasCQ3suejKGFN_F8zSJztgpU=/1066x600/cloudfront-us-east-1.images.arcpublishing.com/ajc/NNMZBF7F4VEBXHYFT2B4DWCWOQ.jpg" /&gt;
 </content>
     <link href="https://ddanieltan.com/posts/2021/why_omscs/" rel="alternate"/>
+    <summary>I started my first semester of Georgia Tech’s Online Masters of Science in Computer Science (OMSCS) this year. In this blog, I share more about why I chose this programme and what are the steps you need to take if you are also thinking of applying.Georgia Tech's "Tech Tower"</summary>
+    <category term="OMSCS" label="OMSCS"/>
     <published>2021-03-20T00:00:00+00:00</published>
   </entry>
 </feed>
