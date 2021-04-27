@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-04-24T06:40:30.174986+00:00</updated>
+  <updated>2021-04-27T16:23:13.182127+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.17">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
   <entry>
     <id>https://ddanieltan.com/posts/2021/hello_world/</id>
     <title>Hello World</title>
@@ -49,5 +49,15 @@
     <summary>I started my first semester of Georgia Tech’s Online Masters of Science in Computer Science (OMSCS) this year. In this blog, I share more about why I chose this programme and what are the steps you need to take if you are also thinking of applying.Georgia Tech's "Tech Tower"</summary>
     <category term="OMSCS" label="OMSCS"/>
     <published>2021-03-20T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://ddanieltan.com/posts/2021/useful_sets/</id>
+    <title>Useful things you can do with Sets in Python</title>
+    <updated>2021-04-27T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;Perhaps Python’s most underrated built-in&lt;/p&gt;
+</content>
+    <link href="https://ddanieltan.com/posts/2021/useful_sets/" rel="alternate"/>
+    <summary>Perhaps Python’s most underrated built-in</summary>
+    <published>2021-04-27T00:00:00+00:00</published>
   </entry>
 </feed>

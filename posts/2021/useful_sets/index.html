@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Useful things you can do with Sets in Python" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ddanieltan.com/posts/2021/useful_sets.html" />
+  <meta property="og:site_name" content="https://ddanieltan.com" />
+  <meta property="og:description" content="Perhaps Python’s most underrated built-in I don’t use Sets as often as I should: I have noticed that everytime I need to create a collection/data structure in Python, I almost always default to: a ..." />
+  
+    <title>Useful things you can do with Sets in Python &#8212; 😁 ddanieltan.com  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../index/atom.xml"
+  title="ddanieltan.com"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../">
+<p class="title">😁 ddanieltan.com</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  <span class="wave">
+   👋
+  </span>
+  About me
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../">
+  📝 Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+<h3>
+  <a href="../../../">✍️ Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../why_omscs/"
+      >Why I Chose OMSCS</a>
+      <p>20 March 2021</p>
+  </li>
+  
+  <li>
+    <a href="../property_decorator/"
+      >Using the @property decorator in data science projects</a>
+      <p>20 February 2021</p>
+  </li>
+  
+  <li>
+    <a href="../singapore_math_model/"
+      >The Singapore Math Model and Data Modeling with NamedTuples</a>
+      <p>14 January 2021</p>
+  </li>
+  
+  <li>
+    <a href="../hello_world/"
+      >Hello World</a>
+      <p>01 January 2021</p>
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="../../../index/archive/">🗓️ Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../index/2021/">2021 (5)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../index/tag/">🏷️ Tags</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (1)</a>
+  </li>
+     
+</ul>
+
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#i-don-t-use-sets-as-often-as-i-should">
+   I don’t use Sets as often as I should
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#removing-duplicate-elements">
+   Removing duplicate elements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-theory">
+   Set Theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#union">
+     Union
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intersection">
+     Intersection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#difference">
+     Difference
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-checks">
+   Conditional Checks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#isdisjoint">
+     Isdisjoint
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#issubset-and-issuperset">
+     Issubset and Issuperset
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#special-use-cases">
+   Special use cases
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speedy-check-for-membership">
+     Speedy check for membership
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#budget-load-balancer">
+     Budget load balancer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="useful-things-you-can-do-with-sets-in-python">
+<h1>Useful things you can do with Sets in Python<a class="headerlink" href="#useful-things-you-can-do-with-sets-in-python" title="Permalink to this headline">¶</a></h1>
+<p>Perhaps Python’s most underrated built-in</p>
+<div class="section" id="i-don-t-use-sets-as-often-as-i-should">
+<h2>I don’t use Sets as often as I should<a class="headerlink" href="#i-don-t-use-sets-as-often-as-i-should" title="Permalink to this headline">¶</a></h2>
+<p>I have noticed that everytime I need to create a collection/data structure in Python, I almost always default to:</p>
+<ul class="simple">
+<li><p>a list (about 90% of the time)</p></li>
+<li><p>a numpy array (when I’m thinking about speed)</p></li>
+<li><p>a dictionary (when I want a hashmap)</p></li>
+</ul>
+<p>And I don’t think about using Sets as much as I really should, which is a real pity because Sets are a very special and powerful Python built-in type that can solve many common problems. So here’s short little blog post on some useful things you can do with Sets.</p>
+</div>
+<div class="section" id="removing-duplicate-elements">
+<h2>Removing duplicate elements<a class="headerlink" href="#removing-duplicate-elements" title="Permalink to this headline">¶</a></h2>
+<p>A set can only contain unique elements, and this property makes sets a very convenient data structure for removing duplicates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Andy&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Andy&quot;</span><span class="p">,</span> <span class="s2">&quot;Jay&quot;</span><span class="p">,</span> <span class="s2">&quot;Peter&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Russ&quot;</span><span class="p">,</span> <span class="s2">&quot;Jay&quot;</span><span class="p">]</span>
+<span class="n">unique_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Peter&#39;, &#39;Jay&#39;, &#39;Russ&#39;, &#39;Andy&#39;, &#39;Bob&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is common to apply the <code class="docutils literal notranslate"><span class="pre">set()</span></code> function on a Python iterable, such as a <code class="docutils literal notranslate"><span class="pre">List</span></code> (ie. example above) or a <code class="docutils literal notranslate"><span class="pre">Tuple</span></code>, but don’t forget that <code class="docutils literal notranslate"><span class="pre">String</span></code> is also an iterable type in Python! This means we can also use sets to find the unique letters in any given string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_string</span> <span class="o">=</span> <span class="s2">&quot;supercalifragilisticexpialidocious&quot;</span>
+<span class="n">unique_letters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_letters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;o&#39;, &#39;g&#39;, &#39;s&#39;, &#39;d&#39;, &#39;t&#39;, &#39;l&#39;, &#39;e&#39;, &#39;a&#39;, &#39;f&#39;, &#39;x&#39;, &#39;u&#39;, &#39;i&#39;, &#39;r&#39;, &#39;c&#39;, &#39;p&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-theory">
+<h2>Set Theory<a class="headerlink" href="#set-theory" title="Permalink to this headline">¶</a></h2>
+<p>The concept of a Set in Python comes from <a class="reference external" href="https://en.wikipedia.org/wiki/Set_theory">Set Theory</a>, which is a foundational branch of Mathematics that teaches us how we can think about collections of objects or numbers. Probably, Set Theory was your 1st introduction to the famous Venn Diagram, and it’s related concepts such as Unions and Intersections. Just like what we learnt in Math class, we can perform the following useful operations on 2 or more Python Sets.</p>
+<div class="section" id="union">
+<h3>Union<a class="headerlink" href="#union" title="Permalink to this headline">¶</a></h3>
+<p>Join 2 or more Sets and return the non-duplicated results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">garden1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;tulips&#39;</span><span class="p">,</span> <span class="s1">&#39;hydrangeas&#39;</span><span class="p">,</span> <span class="s1">&#39;roses&#39;</span><span class="p">,</span> <span class="s1">&#39;chrysanthemums&#39;</span><span class="p">])</span>
+<span class="n">garden2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;chrysanthemums&#39;</span><span class="p">,</span><span class="s1">&#39;lilies&#39;</span><span class="p">,</span><span class="s1">&#39;orchids&#39;</span><span class="p">,</span><span class="s1">&#39;hydrangeas&#39;</span><span class="p">])</span>
+<span class="n">garden3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;roses&#39;</span><span class="p">,</span><span class="s1">&#39;lilies&#39;</span><span class="p">,</span> <span class="s1">&#39;daisies&#39;</span><span class="p">])</span>
+
+<span class="n">unique_flowers</span> <span class="o">=</span> <span class="n">garden1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">garden2</span><span class="p">,</span><span class="n">garden3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_flowers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tulips&#39;, &#39;daisies&#39;, &#39;hydrangeas&#39;, &#39;orchids&#39;, &#39;lilies&#39;, &#39;roses&#39;, &#39;chrysanthemums&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="intersection">
+<h3>Intersection<a class="headerlink" href="#intersection" title="Permalink to this headline">¶</a></h3>
+<p>Return only the common elements in 2 or more Sets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Each group contains a list of customer_ids</span>
+<span class="n">group_a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">121</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">61</span><span class="p">])</span>
+<span class="n">group_b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">34</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+<span class="n">group_c</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">24</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">53</span><span class="p">])</span>
+
+<span class="n">common_customer_ids</span> <span class="o">=</span> <span class="n">group_a</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">group_b</span><span class="p">,</span> <span class="n">group_c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">common_customer_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{34, 22}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Simple is better than Complex</p>
+<p>Looking back at my old code, there are so many occasions where I used more complex methods, such as merging 2 DataFrames with an inner join, to find an intersecting elements.</p>
+<p>In many cases, we are better served by using the much simpler approach of calling the intersection method between 2 sets instead.</p>
+</div>
+</div>
+<div class="section" id="difference">
+<h3>Difference<a class="headerlink" href="#difference" title="Permalink to this headline">¶</a></h3>
+<p>Return only the non-common elements between 2 or more sets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">languages1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span><span class="s1">&#39;C++&#39;</span><span class="p">,</span><span class="s1">&#39;Golang&#39;</span><span class="p">,</span><span class="s1">&#39;Haskell&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">])</span>
+<span class="n">languages2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;Javascript&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Julia&#39;</span><span class="p">,</span> <span class="s1">&#39;Erlang&#39;</span><span class="p">])</span>
+
+<span class="n">non_common_languages</span> <span class="o">=</span> <span class="n">languages1</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">languages2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">non_common_languages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Haskell&#39;, &#39;Golang&#39;, &#39;C++&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-checks">
+<h2>Conditional Checks<a class="headerlink" href="#conditional-checks" title="Permalink to this headline">¶</a></h2>
+<p>I also categorize several Set methods under the purpose of performing some type of conditional check and returning either a True or False boolean. These are particularly useful and fast operations to add to long scripts or unit tests.</p>
+<div class="section" id="isdisjoint">
+<h3>Isdisjoint<a class="headerlink" href="#isdisjoint" title="Permalink to this headline">¶</a></h3>
+<p>Returns True if no elements between 2 Sets are common, and False if there is at least 1 common element.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">])</span>
+<span class="n">colours2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;lilac&#39;</span><span class="p">])</span>
+
+<span class="n">colours1</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">colours2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;rainbow&#39;</span><span class="p">])</span>
+<span class="n">colours4</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;lilac&#39;</span><span class="p">,</span> <span class="s1">&#39;rainbow&#39;</span><span class="p">])</span>
+
+<span class="n">colours3</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">colours4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="issubset-and-issuperset">
+<h3>Issubset and Issuperset<a class="headerlink" href="#issubset-and-issuperset" title="Permalink to this headline">¶</a></h3>
+<p>In this signature <code class="docutils literal notranslate"><span class="pre">primary.method(secondary)</span></code>:</p>
+<p>Issubset returns True if all the elements of the primary set are members of the secondary set, returns False otherwise.</p>
+<p>Issuperset returns True if all the elements of the secondary set are members of the primary set, return False otherwise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primary</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="n">secondary</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
+
+<span class="n">primary</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">secondary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primary</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="n">secondary</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+
+<span class="n">primary</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">secondary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="special-use-cases">
+<h2>Special use cases<a class="headerlink" href="#special-use-cases" title="Permalink to this headline">¶</a></h2>
+<p>Lastly, there are a lot of special use cases that are neat and novels ways to use Sets.</p>
+<div class="section" id="speedy-check-for-membership">
+<h3>Speedy check for membership<a class="headerlink" href="#speedy-check-for-membership" title="Permalink to this headline">¶</a></h3>
+<p>Under the hood, sets are implemented using hash tables. This means when we want to check if an element is a member of a set (ie. lookup), this operation is faster versus a similar membership check in a list.</p>
+<p>Source: https://stackoverflow.com/questions/8929284/what-makes-sets-faster-than-lists/8929445</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_list</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">big_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="mi">1612</span> <span class="ow">in</span> <span class="n">big_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slowest run took 15.21 times longer than the fastest. This could mean that an intermediate result is being cached.
+10000000 loops, best of 5: 71.2 ns per loop
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="mi">1612</span> <span class="ow">in</span> <span class="n">big_set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000000 loops, best of 5: 35.5 ns per loop
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="budget-load-balancer">
+<h3>Budget load balancer<a class="headerlink" href="#budget-load-balancer" title="Permalink to this headline">¶</a></h3>
+<p>1 of Set’s properties is that it’s elements are always unordered, and this is usually seen as a disadvantage. In fact, it’s surprising that Set actually has a <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method that is usually reserved for ordered data structures. When you call <code class="docutils literal notranslate"><span class="pre">pop()</span></code> on a set, it removes a random element. I used to think that was a pretty useless method, until I read this <a class="reference external" href="https://stackoverflow.com/questions/19378718/python-whats-the-use-case-for-set-pop">StackOverflow post</a>.</p>
+<p>Amusingly, this random removal of an element works surprisingly well to create a simple load balancer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;job1&#39;</span><span class="p">,</span> <span class="s1">&#39;job2&#39;</span><span class="p">,</span> <span class="s1">&#39;job3&#39;</span><span class="p">,</span><span class="s1">&#39;job4&#39;</span><span class="p">,</span><span class="s1">&#39;job5&#39;</span><span class="p">])</span>
+
+<span class="k">while</span> <span class="n">jobs</span><span class="p">:</span>
+    <span class="n">current_job</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Processing </span><span class="si">{</span><span class="n">current_job</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Jobs done!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing job2
+Processing job1
+Processing job3
+Processing job4
+Processing job5
+
+Jobs done!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../why_omscs/">
+      <i class="fa fa-arrow-circle-left"></i> Why I Chose OMSCS
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-186399663-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+<footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
+      </p>
+    </div>
+  </footer>
+  </body>
+</html>
