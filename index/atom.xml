@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-04-27T16:23:13.182127+00:00</updated>
+  <updated>2021-04-30T15:02:37.769789+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -55,6 +55,7 @@
     <title>Useful things you can do with Sets in Python</title>
     <updated>2021-04-27T00:00:00+00:00</updated>
     <content type="html">&lt;p&gt;Perhaps Python’s most underrated built-in&lt;/p&gt;
+&lt;img alt="_images/undraw_sorting_thoughts.png" class="align-center" src="_images/undraw_sorting_thoughts.png" /&gt;
 </content>
     <link href="https://ddanieltan.com/posts/2021/useful_sets/" rel="alternate"/>
     <summary>Perhaps Python’s most underrated built-in</summary>

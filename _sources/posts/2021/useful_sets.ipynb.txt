@@ -25,6 +25,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "```{image} /images/undraw_sorting_thoughts.png\n",
+    ":align: center\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Removing duplicate elements\n",
     "A set can only contain unique elements, and this property makes sets a very convenient data structure for removing duplicates. \n"
    ]
