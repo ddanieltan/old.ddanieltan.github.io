@@ -16,7 +16,7 @@ extensions = [
 ]
 
 # sphinx_panels config
-panels_add_bootstrap_css = False
+panels_add_bootstrap_css = True
 
 templates_path = ['_templates']
 pygments_style = "sphinx"
@@ -83,28 +83,5 @@ ogp_type = "article"
 # Temporarily stored as off until we fix it
 jupyter_execute_notebooks = "off" #TODO test
 
-
-# Taken from sphinx_book_theme __init__.py
-from docutils.parsers.rst import directives
-class Margin(directives.body.Sidebar):
-    """Goes in the margin to the right of the page."""
-
-    optional_arguments = 1
-    required_arguments = 0
-
-    def run(self):
-        """Run the directive."""
-        if not self.arguments:
-            self.arguments = [""]
-        nodes = super().run()
-        nodes[0].attributes["classes"].append("margin")
-
-        # Remove the "title" node if it is empty
-        if not self.arguments:
-            nodes[0].children.pop(0)
-        return nodes
-
-
 def setup(app):
     app.add_css_file("custom.css")
-    app.add_directive("margin", Margin)
