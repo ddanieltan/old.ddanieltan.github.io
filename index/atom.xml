@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-04-30T15:02:37.769789+00:00</updated>
+  <updated>2021-05-21T10:53:51.550537+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
@@ -60,5 +60,16 @@
     <link href="https://ddanieltan.com/posts/2021/useful_sets/" rel="alternate"/>
     <summary>Perhaps Python’s most underrated built-in</summary>
     <published>2021-04-27T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://ddanieltan.com/posts/2021/how_to_create_this_blog/</id>
+    <title>How to create this blog</title>
+    <updated>2021-05-21T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are &lt;a class="reference external" href="https://executablebooks.org/en/latest/"&gt;The Executable Books Project (EBP)&lt;/a&gt; and &lt;a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html"&gt;Sphinx&lt;/a&gt;.&lt;/p&gt;
+&lt;img alt="_images/blogging_tools.png" class="align-center" src="_images/blogging_tools.png" /&gt;
+</content>
+    <link href="https://ddanieltan.com/posts/2021/how_to_create_this_blog/" rel="alternate"/>
+    <summary>In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are The Executable Books Project (EBP) and Sphinx.</summary>
+    <published>2021-05-21T00:00:00+00:00</published>
   </entry>
 </feed>

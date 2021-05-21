@@ -5,15 +5,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="How to create this blog (Part 1)" />
+  <meta property="og:title" content="How to create this blog" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://ddanieltan.com/posts/drafts/how_to_create_a_blog.html" />
+  <meta property="og:url" content="https://ddanieltan.com/posts/2021/how_to_create_this_blog.html" />
   <meta property="og:site_name" content="https://ddanieltan.com" />
-  <meta property="og:description" content="In Part 1 of this How-to, I cover the core tools I used to create this blog. These tools are primarily from The Executable Books Project (EBP) and Sphinx. In Part 2, I will cover how to deploy the ..." />
-  <meta property="og:image" content="../../../_images/executable_books_project.png" />
+  <meta property="og:description" content="In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are The Executable Books Project (EBP) and Sphinx. The Executable Books Proje..." />
+  <meta property="og:image" content="../../../_images/blogging_tools.png" />
   <meta property="og:image:alt" content="https://ddanieltan.com" />
   
-    <title>How to create this blog (Part 1) &#8212; 😁 ddanieltan.com  documentation</title>
+    <title>How to create this blog &#8212; 😁 ddanieltan.com  documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -165,31 +166,31 @@
 <ul>
    
   <li>
-    <a href="../../2021/useful_sets/"
+    <a href="../useful_sets/"
       >Useful things you can do with Sets in Python</a>
       <p>27 April 2021</p>
   </li>
   
   <li>
-    <a href="../../2021/why_omscs/"
+    <a href="../why_omscs/"
       >Why I Chose OMSCS</a>
       <p>20 March 2021</p>
   </li>
   
   <li>
-    <a href="../../2021/property_decorator/"
+    <a href="../property_decorator/"
       >Using the @property decorator in data science projects</a>
       <p>20 February 2021</p>
   </li>
   
   <li>
-    <a href="../../2021/singapore_math_model/"
+    <a href="../singapore_math_model/"
       >The Singapore Math Model and Data Modeling with NamedTuples</a>
       <p>14 January 2021</p>
   </li>
   
   <li>
-    <a href="../../2021/hello_world/"
+    <a href="../hello_world/"
       >Hello World</a>
       <p>01 January 2021</p>
   </li>
@@ -202,7 +203,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (5)</a>
+    <a href="../../../index/2021/">2021 (6)</a>
   </li>
    
 </ul>
@@ -245,18 +246,25 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#my-reason-for-choosing-to-use-these-tools">
-   My reason for choosing to use these tools
+  <a class="reference internal nav-link" href="#my-reasons-for-using-ebp-sphinx">
+   My reasons for using EBP + Sphinx
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#starter-template">
-   Starter Template
+  <a class="reference internal nav-link" href="#blog-starter-template">
+   Blog Starter Template
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up">
+     Setting up
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-i-write-my-posts">
-   How I write my posts
+  <a class="reference internal nav-link" href="#how-to-write-posts">
+   How to write posts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -281,6 +289,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -301,66 +314,105 @@
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="section" id="how-to-create-this-blog-part-1">
-<h1>How to create this blog (Part 1)<a class="headerlink" href="#how-to-create-this-blog-part-1" title="Permalink to this headline">¶</a></h1>
-<p>In Part 1 of this How-to, I cover the core tools I used to create this blog. These tools are primarily from <a class="reference external" href="https://executablebooks.org/en/latest/">The Executable Books Project (EBP)</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Sphinx</a>.</p>
-<p>In Part 2, I will cover how to deploy the blog on a custom domain.</p>
+                 <div class="section" id="how-to-create-this-blog">
+<h1>How to create this blog<a class="headerlink" href="#how-to-create-this-blog" title="Permalink to this headline">¶</a></h1>
+<p>In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are <a class="reference external" href="https://executablebooks.org/en/latest/">The Executable Books Project (EBP)</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Sphinx</a>.</p>
+<a class="reference external image-reference" href="https://executablebooks.org/en/latest/"><img alt="../../../_images/blogging_tools.png" class="align-center" src="../../../_images/blogging_tools.png" /></a>
 <div class="section" id="the-executable-books-project-ebp">
 <h2>The Executable Books Project (EBP)<a class="headerlink" href="#the-executable-books-project-ebp" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="https://executablebooks.org/en/latest/"><img alt="../../../_images/executable_books_project.png" class="align-center" src="../../../_images/executable_books_project.png" /></a>
-<p>I’ll never forget the 1st time I saw a lesson taught using a Jupyter notebook, where a narrative describing the problem and executable code demonstrating a solution were put side by side. It was my 1st exposure to this approach of melding code and writing together which I later learnt is referred to as a <strong>computational narrative</strong>.</p>
-<p>The EBP is an international collaboration between several universities to build open source tools that facilitate publishing computational narratives using the Jupyter ecosystem. Using the tools within EBP, I am able to write my content for this blog either as a markdown file or as a Jupyter notebook. Of course, the tools are applicable to much more than just simple blogging use cases, and their documentation is excellent so I encourage you to read more about this project directly over on their <a class="reference external" href="https://executablebooks.org/en/latest/">page</a>.</p>
+<p>The EBP is a collection of tools under the Jupyter ecosystem focused on allowing Data Scientists (or anyone really) to create computational narratives or “executable books”. My 1st exposure to the EBP was when I came across one of their most popular tools - <a class="reference external" href="https://jupyterbook.org/">Jupyterbook</a>.</p>
+<p>Jupyterbook is a library that allows you to create your very own online textbook built up from either markdown files or Jupyter Notebooks. I had a lot of fun playing around with Jupyterbook over a weekend, and started to dream of the possibility to use the EBP tools to build a blog.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I was excited enough about the idea of building a blog with Jupyterbook that I raised <a class="reference external" href="https://github.com/executablebooks/jupyter-book/issues/900">this issue here</a> (and it’s still 1 of the project’s top 👍 issue!)</p>
+</div>
+<p>You can explore the entire ecosystem of tools under the EBP on this <a class="reference external" href="https://executablebooks.org/en/latest/tools.html">page</a>.</p>
 </div>
 <div class="section" id="sphinx">
 <h2>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h2>
 <p>Sphinx is a Python-based documentation generation tool that efficiently indexes and keeps track of content files. Amongst Sphinx’s many extensions is one called <a class="reference external" href="https://ablog.readthedocs.io/">Ablog</a>. Ablog uses Sphinx as an engine to convert my content files into html/css files that make up this site.</p>
 <div class="tip admonition">
-<p class="admonition-title">Also consider - <a class="reference external" href="https://github.com/fastai/fastpages">Fastpages</a></p>
-<p>Fastpages is another notebook-focused blogging library coming from the excellent fastai family.
-The only reason why I decided to not go with this option was that I had a preference of using Sphinx(Python) over Jekyll(Ruby). I’ve read in the <a class="reference external" href="https://forums.fast.ai/t/fastpages-github-pages-blog-using-nbdev/62828/273">fastai forums</a> that a new version powered by Hugo is planned, and would be very interested to try that once it’s out!</p>
+<p class="admonition-title">Alternative blogging tool - <a class="reference external" href="https://github.com/fastai/fastpages">Fastpages</a></p>
+<p>You might also want to consider Fastpages as an alternative notebook-focused blogging library. It comes from the excellent fastai family of tools.</p>
+<p>The only reason why I decided to not go with Fastpages was that I had a preference of using Sphinx(Python) over Jekyll(Ruby). I’ve read in the <a class="reference external" href="https://forums.fast.ai/t/fastpages-github-pages-blog-using-nbdev/62828/273">fastai forums</a> that a new version powered by Hugo is planned, and would be very interested to try that once it’s out!</p>
 </div>
 </div>
-<div class="section" id="my-reason-for-choosing-to-use-these-tools">
-<h2>My reason for choosing to use these tools<a class="headerlink" href="#my-reason-for-choosing-to-use-these-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="my-reasons-for-using-ebp-sphinx">
+<h2>My reasons for using EBP + Sphinx<a class="headerlink" href="#my-reasons-for-using-ebp-sphinx" title="Permalink to this headline">¶</a></h2>
 <dl class="simple myst">
-<dt>I am familiar with Jupyter and Sphinx because I use these tools at work</dt><dd><p>My goal for blogging is to practise my writing. As I grow in my career both as a Data Scientist and teacher, it’s more apparent to me that being able to communicate with clarity is such an important skill to hone. Therefore, while I love to learn new technologies, I’m going to stick with familiar tools so I can get this blog up and running and focus on the writing.</p>
+<dt>I am familiar with Jupyter and Sphinx because I use these tools at work</dt><dd><p>My goal for blogging is to practise my writing, so it’s important to me that the tooling doesn’t get too in the way.</p>
 </dd>
 <dt>Jupyter notebooks are 1st class citizens</dt><dd><p>Jupyter notebooks are notoriously finicky to convert into html/css. The tools from EBP essentially take away a lot of the usual friction you would encounter and make it easy to include other features such as</p>
 </dd>
-<dt>I like the aesthetics of the <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">theme</a></dt><dd><p>If, like me, you spend a lot of time reading the <a class="reference external" href="https://pandas.pydata.org/docs/">pandas documentation</a>, you probably would find the look and feel of this blog comfortingly familiar. That’s because the blog is using the exact same theme! After hours of reading the pandas documentation, I’ve grown to like the design choices of this theme, and applying it to my blog was a no-brainer.</p>
+<dt>I like the aesthetics of the <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">Pydata theme</a></dt><dd><p>If, like me, you spend a lot of time reading the <a class="reference external" href="https://pandas.pydata.org/docs/">pandas documentation</a>, you probably would find the look and feel of this blog comfortingly familiar. That’s because the blog is using the exact same theme! I’ve grown to like the design choices of this theme, and applying it to my blog was a no-brainer.</p>
 </dd>
-<dt>I was inspired by <a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/">Chris Holdgraf’s blog</a></dt><dd><p>Chris is one the core members in EBP. His blog and it’s open sourced code was my starting point. It made it simple enough for me to get something working and I went on to make some small modifications from there.</p>
+<dt>I was inspired by <a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/">Chris Holdgraf’s blogpost starter template</a></dt><dd><p>Chris is one the core members in EBP. In this blogpost, Chris explains how he rewrote his blog using EBP + Sphinx and the source code and helpful links. Thanks to this blogpost, things were simple enough for me to start working on my own. My blog and the template I will share in the next section is pretty much Chris’s starter code + a few modifications from me.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="starter-template">
-<h2>Starter Template<a class="headerlink" href="#starter-template" title="Permalink to this headline">¶</a></h2>
-<p>This is a link to a starter template for this blog.
-<span class="xref myst">My blog starter template</span> : A starter repository you can clone and start using immediately.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Insert</span> <span class="n">tree</span>
+<div class="section" id="blog-starter-template">
+<h2><a class="reference external" href="https://github.com/ddanieltan/blog_ebp_sphinx_starter">Blog Starter Template</a><a class="headerlink" href="#blog-starter-template" title="Permalink to this headline">¶</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">Caveat</p>
+<p>I am super happy to share my template + explain my approach to get my blog up and running.
+But, I also want to state up-front that I have <strong>very little experience with front-end programming</strong>. So more than likely, this next section contains some convuluted/hacky/incorrect/inefficient code.</p>
+<p>(If you find any issue, <a class="reference internal" href="../../../about/"><span class="doc std std-doc">drop me an email</span></a> to explain what I’m doing wrong and I’ll do my best to correct it.)</p>
+</div>
+<p>I have created a simple blog starter template at <a class="reference external" href="https://github.com/ddanieltan/blog_ebp_sphinx_starter">https://github.com/ddanieltan/blog_ebp_sphinx_starter</a>.
+These are the files in the repo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── LICENSE
+├── Makefile
+├── README.md
+├── _build
+├── _static
+│   ├── custom.css
+│   ├── magnifying.ico
+│   └── profile.png
+├── _templates
+│   ├── archives.html
+│   ├── footer.html
+│   ├── hello.html
+│   ├── recentposts.html
+│   └── tags.html
+├── about.md
+├── conf.py
+├── index.md
+├── posts
+│   ├── jupyter_post.ipynb
+│   └── markdown_post.md
+└── requirements.txt
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Clone this repository and install the dependencies listed in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
-<li><p>Write a post using either a markdown or jupyter notebook. By default, you should place that content file in the <code class="docutils literal notranslate"><span class="pre">posts/</span></code> directory (this is configurable in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>)</p></li>
-<li><p>To build your site, in the root directory run the command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code></p></li>
-<li><p>The make command will build a <code class="docutils literal notranslate"><span class="pre">_build/</span></code> directory and the html files that will make up your site will be in <code class="docutils literal notranslate"><span class="pre">_build/html/</span></code></p></li>
-<li><p>Open up <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in a browser and you can view your site locally</p></li>
-<li><p>Easily deploy the site online using <a class="reference external" href="https://pages.github.com/">Github Pages</a></p></li>
-</ul>
+<div class="section" id="setting-up">
+<h3>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h3>
+<p>Clone the repository</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ddanieltan</span><span class="o">/</span><span class="n">blog_ebp_sphinx_starter</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
 </div>
-<div class="section" id="how-i-write-my-posts">
-<h2>How I write my posts<a class="headerlink" href="#how-i-write-my-posts" title="Permalink to this headline">¶</a></h2>
-<dl class="simple myst">
-<dt>In a terminal window, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">auto_reload.py</span></code></dt><dd><p>Firstly, I run a simple script that uses the <a class="reference external" href="https://github.com/lepture/python-livereload">livereload</a> library to automatically rebuild my site everytime it detects changes in my blog repository. Then I open a browser window and point it to <code class="docutils literal notranslate"><span class="pre">localhost:5500</span></code> to see my changes to my posts in real time.</p>
-</dd>
-<dt>Open <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>, create a markdown or ipynb file under posts/**</dt><dd><p>Next, I run jupyter lab as my main editor to write a new post. You can opt to use any other editor/IDE to create a markdown or iPython notebook file but I choose to use jupyter lab to easily edit notebook level and/or cell level metadata.</p>
-</dd>
-</dl>
-<p>Regardless if you use a markdown of Jupyter notebook, ensure minimally you have filled in <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">title</span></code> metadata in the document. Posts without dates are treated as Drafts and won’t be published in your regular blog roll. More details on this in the <a class="reference external" href="https://ablog.readthedocs.io/manual/posting-and-listing/">Ablog documentation</a>.</p>
+<p>Install the dependencies</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">blog_env</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="o">--</span><span class="n">file</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>You can build your site with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>This command will populate the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory with the required html/css files that will make up your blog website.</p>
+<p>Alternatively, you can also run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">live</span>
+</pre></div>
+</div>
+<p>This command will not only populate the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory, but also watch this directory for any changes. Once it detects a change, it will autobuild the site again. By default, your site can be viewed locally on <code class="docutils literal notranslate"><span class="pre">localhost:8000</span></code>. This is particularly more convenient when you are crafting a new blog post and want to see how it appears in a browser.</p>
+<p>And there you go, you now have everything set up to start blogging! 🥳 🥳 🎉 🎉</p>
+</div>
+</div>
+<div class="section" id="how-to-write-posts">
+<h2>How to write posts<a class="headerlink" href="#how-to-write-posts" title="Permalink to this headline">¶</a></h2>
+<p>Any markdown file or jupyter notebook that is stored under <code class="docutils literal notranslate"><span class="pre">posts/</span></code> will be picked up and converted into a html page. Ensure you have <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">title</span></code> metadata filled in for any post that you want to show up. Posts without dates are treated as Drafts and won’t be published in your regular blog roll.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d94ac590-508f-4c9e-ab99-67d6ec293474" name="9717fd38-e6b4-4c28-8386-c63d0c2d0b15" type="radio">
-</input><label class="tabbed-label" for="d94ac590-508f-4c9e-ab99-67d6ec293474">
+<input checked="checked" id="3ad1d064-6fc4-453c-9c73-36ebf0e1c2c6" name="ccc0d0eb-0d4b-40c4-9293-808dd83fb77e" type="radio">
+</input><label class="tabbed-label" for="3ad1d064-6fc4-453c-9c73-36ebf0e1c2c6">
 Example blogpost.md</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 <span class="n">date</span> <span class="p">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
@@ -373,12 +425,18 @@ Example blogpost.md</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a6353128-a605-44a8-9ade-066d3312f76d" name="9717fd38-e6b4-4c28-8386-c63d0c2d0b15" type="radio">
-</input><label class="tabbed-label" for="a6353128-a605-44a8-9ade-066d3312f76d">
+<input id="82846da6-74a3-4d43-a0d6-104bb3aaf0d5" name="ccc0d0eb-0d4b-40c4-9293-808dd83fb77e" type="radio">
+</input><label class="tabbed-label" for="82846da6-74a3-4d43-a0d6-104bb3aaf0d5">
 Example blogpost.ipynb</label><div class="tabbed-content docutils">
-<img alt="../../../_images/ipynb_metadata.png" class="align-center" src="../../../_images/ipynb_metadata.png" />
+<img alt="../../../_images/jupyter_metadata.png" class="align-center" src="../../../_images/jupyter_metadata.png" />
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can read more about the many metadata parameters you can play with in <a class="reference external" href="https://ablog.readthedocs.io/en/latest/">Ablog’s documentation</a></p>
+</div>
+<p>When I’m crafting a new post, I typically do so using <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>. If I’m crafting a new post using a jupyter notebook, I can actually run and execute any code block that appears in my post. And, I have full control over whether I want to display each code cell’s inputs, outputs or both. You can see the full flexibility of options at <a class="reference external" href="https://jupyterbook.org/file-types/notebooks.html">https://jupyterbook.org/file-types/notebooks.html</a>.</p>
+<p>In my opinion, this is what makes this approach for writing blogs shine! Unlike many other blogging solutions, every post lives as an executable piece of code, while still giving the author control over the look and narrative of this post when it goes unto the web.</p>
 </div>
 <div class="section" id="miscellaneous-details">
 <h2>Miscellaneous details<a class="headerlink" href="#miscellaneous-details" title="Permalink to this headline">¶</a></h2>
@@ -396,8 +454,7 @@ Example blogpost.ipynb</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="index-md">
 <h3>index.md<a class="headerlink" href="#index-md" title="Permalink to this headline">¶</a></h3>
-<p>Every html output page has an equivalent markdown/Jupyter notebook page. Most pages are rather self explanatory, for example you can compare the output of</p>
-<p>The order of the pages in the topbar of the site inherits from the <code class="docutils literal notranslate"><span class="pre">toctree</span></code>. This is what it looks like</p>
+<p>Every html output page has an equivalent markdown/Jupyter notebook page. Most pages are rather self explanatory, for example you can compare the output of The order of the pages in the topbar of the site inherits from the <code class="docutils literal notranslate"><span class="pre">toctree</span></code>.</p>
 </div>
 <div class="section" id="customizing-html-and-css">
 <h3>Customizing html and css<a class="headerlink" href="#customizing-html-and-css" title="Permalink to this headline">¶</a></h3>
@@ -408,10 +465,28 @@ Example blogpost.ipynb</label><div class="tabbed-content docutils">
 <p>All custom themes and css are written last during each build, ensuring those settings overwrite the defaults.</p>
 </div>
 </div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>I think I speak for many when I say that I know that blogging is an incredibly useful thing to do, but there’s  always so much inertia to start and maintain a blog. These set of tools really helped inspire me to get past my inertia to start my blog, and I hope that this post will help you to start yours too! 👍</p>
+</div>
 </div>
 
 <div class="section">
-       
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../useful_sets/">
+      <i class="fa fa-arrow-circle-left"></i> Useful things you can do with Sets in Python
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
 </div>
 
               </div>
