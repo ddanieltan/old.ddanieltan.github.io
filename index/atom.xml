@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-05-21T10:53:51.550537+00:00</updated>
+  <updated>2021-06-28T14:42:45.486597+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.18">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
   <entry>
     <id>https://ddanieltan.com/posts/2021/hello_world/</id>
     <title>Hello World</title>
@@ -71,5 +71,17 @@
     <link href="https://ddanieltan.com/posts/2021/how_to_create_this_blog/" rel="alternate"/>
     <summary>In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are The Executable Books Project (EBP) and Sphinx.</summary>
     <published>2021-05-21T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://ddanieltan.com/posts/2021/omscs_ai4r/</id>
+    <title>Artificial Intelligence for Robotics (AI4R)</title>
+    <updated>2021-06-28T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;This is my course review of my 1st course in OMSCS - &lt;a class="reference external" href="https://omscs.gatech.edu/cs-7638-artificial-intelligence-robotics"&gt;Artificial Intelligence for Robotics (AI4R)&lt;/a&gt;. Overall, I enjoyed this course and would recommend it. The course is often suggested as one of the starting courses for students who just begun their OMSCS journey, and I largely agree.&lt;/p&gt;
+&lt;img alt="_images/car.png" class="align-center" src="_images/car.png" /&gt;
+</content>
+    <link href="https://ddanieltan.com/posts/2021/omscs_ai4r/" rel="alternate"/>
+    <summary>This is my course review of my 1st course in OMSCS - Artificial Intelligence for Robotics (AI4R). Overall, I enjoyed this course and would recommend it. The course is often suggested as one of the starting courses for students who just begun their OMSCS journey, and I largely agree.</summary>
+    <category term="OMSCS" label="OMSCS"/>
+    <published>2021-06-28T00:00:00+00:00</published>
   </entry>
 </feed>
