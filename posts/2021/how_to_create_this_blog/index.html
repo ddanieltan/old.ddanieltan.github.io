@@ -30,23 +30,23 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
@@ -339,16 +339,14 @@
 </div>
 <div class="section" id="my-reasons-for-using-ebp-sphinx">
 <h2>My reasons for using EBP + Sphinx<a class="headerlink" href="#my-reasons-for-using-ebp-sphinx" title="Permalink to this headline">¶</a></h2>
-<dl class="simple myst">
-<dt>I am familiar with Jupyter and Sphinx because I use these tools at work</dt><dd><p>My goal for blogging is to practise my writing, so it’s important to me that the tooling doesn’t get too in the way.</p>
-</dd>
-<dt>Jupyter notebooks are 1st class citizens</dt><dd><p>Jupyter notebooks are notoriously finicky to convert into html/css. The tools from EBP essentially take away a lot of the usual friction you would encounter and make it easy to include other features such as</p>
-</dd>
-<dt>I like the aesthetics of the <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">Pydata theme</a></dt><dd><p>If, like me, you spend a lot of time reading the <a class="reference external" href="https://pandas.pydata.org/docs/">pandas documentation</a>, you probably would find the look and feel of this blog comfortingly familiar. That’s because the blog is using the exact same theme! I’ve grown to like the design choices of this theme, and applying it to my blog was a no-brainer.</p>
-</dd>
-<dt>I was inspired by <a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/">Chris Holdgraf’s blogpost starter template</a></dt><dd><p>Chris is one the core members in EBP. In this blogpost, Chris explains how he rewrote his blog using EBP + Sphinx and the source code and helpful links. Thanks to this blogpost, things were simple enough for me to start working on my own. My blog and the template I will share in the next section is pretty much Chris’s starter code + a few modifications from me.</p>
-</dd>
-</dl>
+<p>I am familiar with Jupyter and Sphinx because I use these tools at work
+: My goal for blogging is to practise my writing, so it’s important to me that the tooling doesn’t get too in the way.</p>
+<p>Jupyter notebooks are 1st class citizens
+: Jupyter notebooks are notoriously finicky to convert into html/css. The tools from EBP essentially take away a lot of the usual friction you would encounter and make it easy to include other features such as</p>
+<p>I like the aesthetics of the <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/latest/index.html">Pydata theme</a>
+: If, like me, you spend a lot of time reading the <a class="reference external" href="https://pandas.pydata.org/docs/">pandas documentation</a>, you probably would find the look and feel of this blog comfortingly familiar. That’s because the blog is using the exact same theme! I’ve grown to like the design choices of this theme, and applying it to my blog was a no-brainer.</p>
+<p>I was inspired by <a class="reference external" href="https://predictablynoisy.com/posts/2020/sphinx-blogging/">Chris Holdgraf’s blogpost starter template</a>
+: Chris is one the core members in EBP. In this blogpost, Chris explains how he rewrote his blog using EBP + Sphinx and the source code and helpful links. Thanks to this blogpost, things were simple enough for me to start working on my own. My blog and the template I will share in the next section is pretty much Chris’s starter code + a few modifications from me.</p>
 </div>
 <div class="section" id="blog-starter-template">
 <h2><a class="reference external" href="https://github.com/ddanieltan/blog_ebp_sphinx_starter">Blog Starter Template</a><a class="headerlink" href="#blog-starter-template" title="Permalink to this headline">¶</a></h2>
@@ -411,8 +409,8 @@ These are the files in the repo:</p>
 <h2>How to write posts<a class="headerlink" href="#how-to-write-posts" title="Permalink to this headline">¶</a></h2>
 <p>Any markdown file or jupyter notebook that is stored under <code class="docutils literal notranslate"><span class="pre">posts/</span></code> will be picked up and converted into a html page. Ensure you have <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">title</span></code> metadata filled in for any post that you want to show up. Posts without dates are treated as Drafts and won’t be published in your regular blog roll.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8425050a-645c-4d7e-83a9-1576afd0427b" name="8afcae32-523e-4b42-a95e-35b4e13fb930" type="radio">
-</input><label class="tabbed-label" for="8425050a-645c-4d7e-83a9-1576afd0427b">
+<input checked="checked" id="3cdca9a2-608d-4827-9904-b2e65797aa69" name="5e634a93-6bdb-4c88-8868-67c7ab3715cd" type="radio">
+</input><label class="tabbed-label" for="3cdca9a2-608d-4827-9904-b2e65797aa69">
 Example blogpost.md</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 <span class="n">date</span> <span class="p">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
@@ -425,8 +423,8 @@ Example blogpost.md</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="eb8514b3-6e5e-4312-b1d0-87f844f09b98" name="8afcae32-523e-4b42-a95e-35b4e13fb930" type="radio">
-</input><label class="tabbed-label" for="eb8514b3-6e5e-4312-b1d0-87f844f09b98">
+<input id="f2a82636-acf2-497d-b8e0-778be12f06ed" name="5e634a93-6bdb-4c88-8868-67c7ab3715cd" type="radio">
+</input><label class="tabbed-label" for="f2a82636-acf2-497d-b8e0-778be12f06ed">
 Example blogpost.ipynb</label><div class="tabbed-content docutils">
 <img alt="../../../_images/jupyter_metadata.png" class="align-center" src="../../../_images/jupyter_metadata.png" />
 </div>

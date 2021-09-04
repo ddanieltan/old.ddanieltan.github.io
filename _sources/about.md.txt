@@ -1,8 +1,8 @@
 # <span class="wave">👋</span> About me
 
-Hi there, I'm Daniel.
+Hi there, I'm Daniel, a data scientist based in Singapore.
 
-I am a Data Scientist based in Singapore, currently working @[OCBC AI Labs](https://www.ocbc.com/group/careers/) where we deliver a variety of AI applications for banking use cases. Prior to banking, I worked in the Optimization team @[TripAdvisor](https://careers.tripadvisor.com/).
+I am currently working @[Apple](https://www.apple.com/careers/us/) where I focus on experimentation for Apple Media Products. Previously, I worked @[OCBC AI Labs](https://www.ocbc.com/group/careers/) on AI applications for banking use case and @[TripAdvisor](https://careers.tripadvisor.com/) where I focused on the optimisation of the metasearch auction.
 
 In my spare time, I enjoy teaching and have taught the *Introduction to Data Science* course at @[General Assembly](https://generalassemb.ly/) and @[Vertical Institute](https://verticalinstitute.com/).
 
