@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://ddanieltan.com</id>
   <title>ddanieltan.com</title>
-  <updated>2021-09-04T08:19:06.788827+00:00</updated>
+  <updated>2021-10-09T13:12:32.646797+00:00</updated>
   <link href="https://ddanieltan.com"/>
   <link href="https://ddanieltan.com/index/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.19">ABlog</generator>
@@ -83,5 +83,17 @@
     <summary>This is my course review of my 1st course in OMSCS - Artificial Intelligence for Robotics (AI4R). Overall, I enjoyed this course and would recommend it. The course is often suggested as one of the starting courses for students who just begun their OMSCS journey, and I largely agree.</summary>
     <category term="OMSCS" label="OMSCS"/>
     <published>2021-06-28T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://ddanieltan.com/posts/2021/omscs_kbai/</id>
+    <title>Knowledge Based AI (KBAI)</title>
+    <updated>2021-09-03T00:00:00+00:00</updated>
+    <content type="html">&lt;p&gt;This is my course review of my 2nd course in OMSCS - &lt;a class="reference external" href="https://omscs.gatech.edu/cs-7637-knowledge-based-artificial-intelligence-cognitive-systems"&gt;Knowledge Based Artificial Intelligence (AI)&lt;/a&gt;, a course focusing on building AI agents with human-like intelligence.&lt;/p&gt;
+&lt;img alt="_images/thinker-unsplash.jpg" src="_images/thinker-unsplash.jpg" /&gt;
+</content>
+    <link href="https://ddanieltan.com/posts/2021/omscs_kbai/" rel="alternate"/>
+    <summary>This is my course review of my 2nd course in OMSCS - Knowledge Based Artificial Intelligence (AI), a course focusing on building AI agents with human-like intelligence.</summary>
+    <category term="OMSCS" label="OMSCS"/>
+    <published>2021-09-03T00:00:00+00:00</published>
   </entry>
 </feed>

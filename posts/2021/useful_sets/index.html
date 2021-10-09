@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta property="og:title" content="Useful things you can do with Sets in Python" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ddanieltan.com/posts/2021/useful_sets.html" />
@@ -15,8 +16,8 @@
   
     <title>Useful things you can do with Sets in Python &#8212; 😁 ddanieltan.com  documentation</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +32,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -39,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -52,8 +53,21 @@
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-     
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-186399663-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -166,6 +180,12 @@
 <ul>
    
   <li>
+    <a href="../omscs_kbai/"
+      >Knowledge Based AI (KBAI)</a>
+      <p>03 September 2021</p>
+  </li>
+  
+  <li>
     <a href="../omscs_ai4r/"
       >Artificial Intelligence for Robotics (AI4R)</a>
       <p>28 June 2021</p>
@@ -189,12 +209,6 @@
       <p>20 February 2021</p>
   </li>
   
-  <li>
-    <a href="../singapore_math_model/"
-      >The Singapore Math Model and Data Modeling with NamedTuples</a>
-      <p>14 January 2021</p>
-  </li>
-  
 </ul>
 
 <h3>
@@ -203,7 +217,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (7)</a>
+    <a href="../../../index/2021/">2021 (8)</a>
   </li>
    
 </ul>
@@ -214,7 +228,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (2)</a>
+    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
   </li>
      
 </ul>
@@ -321,10 +335,10 @@
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="section" id="useful-things-you-can-do-with-sets-in-python">
+                 <section id="useful-things-you-can-do-with-sets-in-python">
 <h1>Useful things you can do with Sets in Python<a class="headerlink" href="#useful-things-you-can-do-with-sets-in-python" title="Permalink to this headline">¶</a></h1>
 <p>Perhaps Python’s most underrated built-in</p>
-<div class="section" id="i-don-t-use-sets-as-often-as-i-should">
+<section id="i-don-t-use-sets-as-often-as-i-should">
 <h2>I don’t use Sets as often as I should<a class="headerlink" href="#i-don-t-use-sets-as-often-as-i-should" title="Permalink to this headline">¶</a></h2>
 <p>I have noticed that everytime I need to create a collection/data structure in Python, I almost always default to:</p>
 <ul class="simple">
@@ -334,8 +348,8 @@
 </ul>
 <p>And I don’t think about using Sets as much as I really should, which is a real pity because Sets are a very special and powerful Python built-in type that can solve many common problems. So here’s short little blog post on some useful things you can do with Sets.</p>
 <img alt="../../../_images/undraw_sorting_thoughts.png" class="align-center" src="../../../_images/undraw_sorting_thoughts.png" />
-</div>
-<div class="section" id="removing-duplicate-elements">
+</section>
+<section id="removing-duplicate-elements">
 <h2>Removing duplicate elements<a class="headerlink" href="#removing-duplicate-elements" title="Permalink to this headline">¶</a></h2>
 <p>A set can only contain unique elements, and this property makes sets a very convenient data structure for removing duplicates.</p>
 <div class="cell docutils container">
@@ -367,11 +381,11 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="set-theory">
+</section>
+<section id="set-theory">
 <h2>Set Theory<a class="headerlink" href="#set-theory" title="Permalink to this headline">¶</a></h2>
 <p>The concept of a Set in Python comes from <a class="reference external" href="https://en.wikipedia.org/wiki/Set_theory">Set Theory</a>, which is a foundational branch of Mathematics that teaches us how we can think about collections of objects or numbers. Probably, Set Theory was your 1st introduction to the famous Venn Diagram, and it’s related concepts such as Unions and Intersections. Just like what we learnt in Math class, we can perform the following useful operations on 2 or more Python Sets.</p>
-<div class="section" id="union">
+<section id="union">
 <h3>Union<a class="headerlink" href="#union" title="Permalink to this headline">¶</a></h3>
 <p>Join 2 or more Sets and return the non-duplicated results</p>
 <div class="cell docutils container">
@@ -391,8 +405,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="intersection">
+</section>
+<section id="intersection">
 <h3>Intersection<a class="headerlink" href="#intersection" title="Permalink to this headline">¶</a></h3>
 <p>Return only the common elements in 2 or more Sets</p>
 <div class="cell docutils container">
@@ -418,8 +432,8 @@
 <p>Looking back at my old code, there are so many occasions where I used more complex methods, such as merging 2 DataFrames with an inner join, to find an intersecting elements.</p>
 <p>In many cases, we are better served by using the much simpler approach of calling the intersection method between 2 sets instead.</p>
 </div>
-</div>
-<div class="section" id="difference">
+</section>
+<section id="difference">
 <h3>Difference<a class="headerlink" href="#difference" title="Permalink to this headline">¶</a></h3>
 <p>Return only the non-common elements between 2 or more sets</p>
 <div class="cell docutils container">
@@ -438,12 +452,12 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="conditional-checks">
+</section>
+</section>
+<section id="conditional-checks">
 <h2>Conditional Checks<a class="headerlink" href="#conditional-checks" title="Permalink to this headline">¶</a></h2>
 <p>I also categorize several Set methods under the purpose of performing some type of conditional check and returning either a True or False boolean. These are particularly useful and fast operations to add to long scripts or unit tests.</p>
-<div class="section" id="isdisjoint">
+<section id="isdisjoint">
 <h3>Isdisjoint<a class="headerlink" href="#isdisjoint" title="Permalink to this headline">¶</a></h3>
 <p>Returns True if no elements between 2 Sets are common, and False if there is at least 1 common element.</p>
 <div class="cell docutils container">
@@ -476,8 +490,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="issubset-and-issuperset">
+</section>
+<section id="issubset-and-issuperset">
 <h3>Issubset and Issuperset<a class="headerlink" href="#issubset-and-issuperset" title="Permalink to this headline">¶</a></h3>
 <p>In this signature <code class="docutils literal notranslate"><span class="pre">primary.method(secondary)</span></code>:</p>
 <p>Issubset returns True if all the elements of the primary set are members of the secondary set, returns False otherwise.</p>
@@ -512,12 +526,12 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="special-use-cases">
+</section>
+</section>
+<section id="special-use-cases">
 <h2>Special use cases<a class="headerlink" href="#special-use-cases" title="Permalink to this headline">¶</a></h2>
 <p>Lastly, there are a lot of special use cases that are neat and novels ways to use Sets.</p>
-<div class="section" id="speedy-check-for-membership">
+<section id="speedy-check-for-membership">
 <h3>Speedy check for membership<a class="headerlink" href="#speedy-check-for-membership" title="Permalink to this headline">¶</a></h3>
 <p>Under the hood, sets are implemented using hash tables. This means when we want to check if an element is a member of a set (ie. lookup), this operation is faster versus a similar membership check in a list.</p>
 <p>Source: https://stackoverflow.com/questions/8929284/what-makes-sets-faster-than-lists/8929445</p>
@@ -556,8 +570,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="budget-load-balancer">
+</section>
+<section id="budget-load-balancer">
 <h3>Budget load balancer<a class="headerlink" href="#budget-load-balancer" title="Permalink to this headline">¶</a></h3>
 <p>1 of Set’s properties is that it’s elements are always unordered, and this is usually seen as a disadvantage. In fact, it’s surprising that Set actually has a <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method that is usually reserved for ordered data structures. When you call <code class="docutils literal notranslate"><span class="pre">pop()</span></code> on a set, it removes a random element. I used to think that was a pretty useless method, until I read this <a class="reference external" href="https://stackoverflow.com/questions/19378718/python-whats-the-use-case-for-set-pop">StackOverflow post</a>.</p>
 <p>Amusingly, this random removal of an element works surprisingly well to create a simple load balancer.</p>
@@ -585,9 +599,9 @@ Jobs done!
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 <div class="section">
      
@@ -617,10 +631,9 @@ Jobs done!
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
@@ -628,18 +641,7 @@ Jobs done!
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
 <footer class="footer mt-5 mt-md-0">
     <div class="container">

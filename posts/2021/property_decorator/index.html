@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta property="og:title" content="Using the @property decorator in data science projects" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ddanieltan.com/posts/2021/property_decorator.html" />
@@ -15,8 +16,8 @@
   
     <title>Using the @property decorator in data science projects &#8212; 😁 ddanieltan.com  documentation</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +32,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -39,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -52,8 +53,21 @@
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-     
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-186399663-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -166,6 +180,12 @@
 <ul>
    
   <li>
+    <a href="../omscs_kbai/"
+      >Knowledge Based AI (KBAI)</a>
+      <p>03 September 2021</p>
+  </li>
+  
+  <li>
     <a href="../omscs_ai4r/"
       >Artificial Intelligence for Robotics (AI4R)</a>
       <p>28 June 2021</p>
@@ -189,12 +209,6 @@
       <p>20 March 2021</p>
   </li>
   
-  <li>
-    <a href="../singapore_math_model/"
-      >The Singapore Math Model and Data Modeling with NamedTuples</a>
-      <p>14 January 2021</p>
-  </li>
-  
 </ul>
 
 <h3>
@@ -203,7 +217,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (7)</a>
+    <a href="../../../index/2021/">2021 (8)</a>
   </li>
    
 </ul>
@@ -214,7 +228,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (2)</a>
+    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
   </li>
      
 </ul>
@@ -314,10 +328,10 @@
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <div class="section" id="using-the-property-decorator-in-data-science-projects">
+                 <section id="using-the-property-decorator-in-data-science-projects">
 <h1>Using the &#64;property decorator in data science projects<a class="headerlink" href="#using-the-property-decorator-in-data-science-projects" title="Permalink to this headline">¶</a></h1>
 <p>The &#64;property decorator is a simple but useful Python feature that can make your data science code easier to read and write.</p>
-<div class="section" id="the-scenario">
+<section id="the-scenario">
 <h2>The scenario<a class="headerlink" href="#the-scenario" title="Permalink to this headline">¶</a></h2>
 <p>Let’s say you have just completed a small but useful data science project that looks something like this.</p>
 <div class="cell tag_remove-output docutils container">
@@ -344,8 +358,8 @@
 <p><code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">A</span></code>’s code is short and sweet and is written following <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object Oriented Programming (OOP)</a> principles which results in nicely defined and modular classes handling each section of the pipeline.</p>
 <p>You see an opportunity to contribute to the team by sharing these modules.
 For example, we can imagine that the <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> class might be useful for another data scientist who also requires data preparation. Likewise, perhaps the <code class="docutils literal notranslate"><span class="pre">CustomFeatureEngineering</span></code> class can make the development cycle for a data scientist starting on a brand new project that much quicker by reimplementing a common set of features.</p>
-</div>
-<div class="section" id="illustration">
+</section>
+<section id="illustration">
 <h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h2>
 <p>Let’s sketch out how our <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> class might look in this scenario.
 Briefly, let us imagine that this class does the following:</p>
@@ -383,12 +397,12 @@ Briefly, let us imagine that this class does the following:</p>
 <p class="admonition-title">Note</p>
 <p>For the sake of brevity, I’ll leave out the code for our fictional functions <code class="docutils literal notranslate"><span class="pre">load_data</span></code> and <code class="docutils literal notranslate"><span class="pre">clean_data</span></code>.</p>
 </div>
-</div>
-<div class="section" id="example-issues">
+</section>
+<section id="example-issues">
 <h2>Example issues<a class="headerlink" href="#example-issues" title="Permalink to this headline">¶</a></h2>
 <p>The next step is simply to share the code with the team! And it’s really with good intentions, that we do so, because genuinely, classes like the one in our example do have the potential for increasing everyone’s productivity.</p>
 <p>However, it is not out of the question that the following example issues crop up when others try using your code.</p>
-<div class="section" id="accidentally-overwriting-or-deleting-parameters">
+<section id="accidentally-overwriting-or-deleting-parameters">
 <h3>Accidentally overwriting or deleting parameters<a class="headerlink" href="#accidentally-overwriting-or-deleting-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Perhaps accidentally (within a long script), a crucial parameter was overwritten. This might cause the main script to break, or worse, the script does not break but instead is working on erroneous data that only gets caught much later down the line.</p>
 <div class="cell docutils container">
@@ -404,8 +418,8 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="accessing-parameters-at-the-wrong-time">
+</section>
+<section id="accessing-parameters-at-the-wrong-time">
 <h3>Accessing parameters at the wrong time<a class="headerlink" href="#accessing-parameters-at-the-wrong-time" title="Permalink to this headline">¶</a></h3>
 <p>When <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> is initialized, the <code class="docutils literal notranslate"><span class="pre">df</span></code> parameter that will hold our final dataframe is initialized as <code class="docutils literal notranslate"><span class="pre">None</span></code>. Our intention is that the user should first call the <code class="docutils literal notranslate"><span class="pre">data_prep()</span></code> function before trying to access <code class="docutils literal notranslate"><span class="pre">df</span></code>, but nothing actually stops users from accessing <code class="docutils literal notranslate"><span class="pre">df</span></code> at any point in time.</p>
 <div class="cell docutils container">
@@ -435,9 +449,9 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="library-code-vs-user-code">
+</section>
+</section>
+<section id="library-code-vs-user-code">
 <h2>Library code vs. User code<a class="headerlink" href="#library-code-vs-user-code" title="Permalink to this headline">¶</a></h2>
 <p>The above examples are my personal experiences of the concerns between writing Library code vs. User code. I first learnt of this situation from a (rather provacatively named 😝) video - <a class="reference external" href="https://youtu.be/cKPlPJyQrt4">PyData Seattle 2017 - So you want to be a Python Expert?</a> (around the 22:30 mark).</p>
 <p><a class="reference external" href="http://www.youtube.com/watch?v=cKPlPJyQrt4"><img alt="James Powell" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" /></a></p>
@@ -448,11 +462,11 @@ Briefly, let us imagine that this class does the following:</p>
 <li><p>There are <strong>many potential pitfalls and gotchas</strong> for both the author of the library code (who cannot control how his/her library code will be used) and the author of the user code (who either should not or could not modify the library code at runtime).</p></li>
 </ul>
 <p>So really, the question I want to answer is - <strong>How do we write our library code to minimize these potential issues/errors</strong>?</p>
-</div>
-<div class="section" id="the-property-decorator">
+</section>
+<section id="the-property-decorator">
 <h2>The &#64;property decorator<a class="headerlink" href="#the-property-decorator" title="Permalink to this headline">¶</a></h2>
 <p>The &#64;property decorator a Python built-in, that allows you to have a little more control over the attributes of your classes. Used correctly, it can minimize some of the issues mentioned above. Here are some examples.</p>
-<div class="section" id="getters-setters-and-deleters">
+<section id="getters-setters-and-deleters">
 <h3>Getters, setters and deleters<a class="headerlink" href="#getters-setters-and-deleters" title="Permalink to this headline">¶</a></h3>
 <p>So recall in our 1st issue, we had a situation where the user of our library code accidentally overwrote the <code class="docutils literal notranslate"><span class="pre">data_source</span></code> attribute. Suppose as the author of the library code, you wanted to give users the ability to inspect <code class="docutils literal notranslate"><span class="pre">data_source</span></code> but you wanted to protect them from accidentally modifying <code class="docutils literal notranslate"><span class="pre">data_source</span></code>.</p>
 <div class="cell docutils container">
@@ -601,8 +615,8 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="readability">
+</section>
+<section id="readability">
 <h3>Readability<a class="headerlink" href="#readability" title="Permalink to this headline">¶</a></h3>
 <p>If you have worked with other OOP languages before (eg. Java, C++) this concept of separating what variables are private or public, properly termed as <a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">Encapsulation</a>, will not be new. Where the &#64;property adds value here is achieving the same result with much less boilerplate, namespace pollution and more readable code.</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -649,8 +663,8 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="encourages-the-good-habit-of-using-underscore-prefix">
+</section>
+<section id="encourages-the-good-habit-of-using-underscore-prefix">
 <h3>Encourages the good habit of using underscore prefix<a class="headerlink" href="#encourages-the-good-habit-of-using-underscore-prefix" title="Permalink to this headline">¶</a></h3>
 <p>You might have also noticed that when we introduced the property decorator, we also slipped in another change. All the attributes initialized under the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method now have an underscore prefix e.g. <code class="docutils literal notranslate"><span class="pre">_data_source</span></code>.</p>
 <p>This is a PEP8 convention that Python uses to signal that this attribute or method belongs privately to its class. Python (prefering to give more flexibility to users) does not enforce private/public distinctions.</p>
@@ -660,13 +674,13 @@ Briefly, let us imagine that this class does the following:</p>
 <p>Also, if you use wildcards when importing e.g. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">*</span></code>, Python will not import any method with an underscore prefix.</p>
 <p>If you’d like to learn more about all the PEP8 naming conventions, you can explore them <a class="reference external" href="https://pep8.org/#descriptive-naming-styles">here</a></p>
 </div>
-</div>
-</div>
-<div class="section" id="conclusion">
+</section>
+</section>
+<section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>Ultimately, the dynamics between library and user code covers way more potential issues than what I illustrated in this blog post. But the &#64;property decorator is a small little fix that goes a long way in covering some of the more common issues. I have used it obsessively since learning about it and I hope it provides value for you too.</p>
-</div>
-</div>
+</section>
+</section>
 
 <div class="section">
      
@@ -696,10 +710,9 @@ Briefly, let us imagine that this class does the following:</p>
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
@@ -707,18 +720,7 @@ Briefly, let us imagine that this class does the following:</p>
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
 <footer class="footer mt-5 mt-md-0">
     <div class="container">
