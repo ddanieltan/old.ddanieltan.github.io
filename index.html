@@ -6,11 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Posts &#8212; 😁 ddanieltan.com  documentation</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -18,47 +23,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="#" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-186399663-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="shortcut icon" href="_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="about/" />
     <link rel="index" title="Index" href="genindex/" />
     <link rel="search" title="Search" href="search/" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="None"> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -92,25 +91,37 @@
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="#">
-<p class="title">😁 ddanieltan.com</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">😁 ddanieltan.com  documentation</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -143,12 +154,18 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
       </ul>
       </div>
@@ -159,12 +176,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><div class="profile-pic"><img src="_static/profile.png" /></div>
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><div class="profile-pic"><img src="_static/profile.png" /></div>
 
 <div class="bio-info">
     <div class="name">
@@ -178,23 +196,25 @@
         
     </div>
 </div>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-          </div>
-          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
 <div class="section">
   <h1>
@@ -202,8 +222,8 @@
   </h1>
    
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/omscs_kbai/"
         >Knowledge Based AI (KBAI)</a
       >
@@ -226,16 +246,18 @@
 </li>
  
     </ul>
-    <p>This is my course review of my 2nd course in OMSCS - <a class="reference external" href="https://omscs.gatech.edu/cs-7637-knowledge-based-artificial-intelligence-cognitive-systems">Knowledge Based Artificial Intelligence (AI)</a>, a course focusing on building AI agents with human-like intelligence.</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>This is my course review of my 2nd course in OMSCS - <a class="reference external" href="https://omscs.gatech.edu/cs-7637-knowledge-based-artificial-intelligence-cognitive-systems">Knowledge Based Artificial Intelligence (AI)</a>, a course focusing on building AI agents with human-like intelligence.</p>
 <img alt="_images/thinker-unsplash.jpg" src="_images/thinker-unsplash.jpg" />
+</div>
 
-    <p><a href="posts/2021/omscs_kbai/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/omscs_kbai/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/omscs_ai4r/"
         >Artificial Intelligence for Robotics (AI4R)</a
       >
@@ -258,16 +280,18 @@
 </li>
  
     </ul>
-    <p>This is my course review of my 1st course in OMSCS - <a class="reference external" href="https://omscs.gatech.edu/cs-7638-artificial-intelligence-robotics">Artificial Intelligence for Robotics (AI4R)</a>. Overall, I enjoyed this course and would recommend it. The course is often suggested as one of the starting courses for students who just begun their OMSCS journey, and I largely agree.</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>This is my course review of my 1st course in OMSCS - <a class="reference external" href="https://omscs.gatech.edu/cs-7638-artificial-intelligence-robotics">Artificial Intelligence for Robotics (AI4R)</a>. Overall, I enjoyed this course and would recommend it. The course is often suggested as one of the starting courses for students who just begun their OMSCS journey, and I largely agree.</p>
 <img alt="_images/car.png" class="align-center" src="_images/car.png" />
+</div>
 
-    <p><a href="posts/2021/omscs_ai4r/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/omscs_ai4r/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/how_to_create_this_blog/"
         >How to create this blog</a
       >
@@ -279,16 +303,18 @@
       </li>
             
     </ul>
-    <p>In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are <a class="reference external" href="https://executablebooks.org/en/latest/">The Executable Books Project (EBP)</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Sphinx</a>.</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are <a class="reference external" href="https://executablebooks.org/en/latest/">The Executable Books Project (EBP)</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Sphinx</a>.</p>
 <img alt="_images/blogging_tools.png" class="align-center" src="_images/blogging_tools.png" />
+</div>
 
-    <p><a href="posts/2021/how_to_create_this_blog/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/how_to_create_this_blog/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/useful_sets/"
         >Useful things you can do with Sets in Python</a
       >
@@ -298,18 +324,65 @@
       <li>
          <i class="fa fa-calendar"></i> 27 April 2021 
       </li>
-            
+           
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="index/tag//"></a>  
+</li>
+ 
     </ul>
-    <p>Perhaps Python’s most underrated built-in</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>Perhaps Python’s most underrated built-in</p>
 <img alt="_images/undraw_sorting_thoughts.png" class="align-center" src="_images/undraw_sorting_thoughts.png" />
+</div>
 
-    <p><a href="posts/2021/useful_sets/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/useful_sets/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="posts/2021/migrate/"
+        >Why I Chose OMSCS</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 20 March 2021 
+      </li>
+           
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="index/tag/omscs/">OMSCS</a>  
+</li>
+ 
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>I started my first semester of Georgia Tech’s Online Masters of Science in Computer Science (<a class="reference external" href="https://omscs.gatech.edu/">OMSCS</a>) this year. In this blog, I share more about why I chose this programme and what are the steps you need to take if you are also thinking of applying.</p>
+<img alt="Georgia Tech's &quot;Tech Tower&quot;" src="https://www.ajc.com/resizer/YlHasCQ3suejKGFN_F8zSJztgpU=/1066x600/cloudfront-us-east-1.images.arcpublishing.com/ajc/NNMZBF7F4VEBXHYFT2B4DWCWOQ.jpg" />
+</div>
+
+    <p class="ablog-post-expand"><a href="posts/2021/migrate/"><em>Read more ...</em></a></p>
+    <hr />
+  </div>
+  
+
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/why_omscs/"
         >Why I Chose OMSCS</a
       >
@@ -332,16 +405,18 @@
 </li>
  
     </ul>
-    <p>I started my first semester of Georgia Tech’s Online Masters of Science in Computer Science (<a class="reference external" href="https://omscs.gatech.edu/">OMSCS</a>) this year. In this blog, I share more about why I chose this programme and what are the steps you need to take if you are also thinking of applying.</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>I started my first semester of Georgia Tech’s Online Masters of Science in Computer Science (<a class="reference external" href="https://omscs.gatech.edu/">OMSCS</a>) this year. In this blog, I share more about why I chose this programme and what are the steps you need to take if you are also thinking of applying.</p>
 <img alt="Georgia Tech's &quot;Tech Tower&quot;" src="https://www.ajc.com/resizer/YlHasCQ3suejKGFN_F8zSJztgpU=/1066x600/cloudfront-us-east-1.images.arcpublishing.com/ajc/NNMZBF7F4VEBXHYFT2B4DWCWOQ.jpg" />
+</div>
 
-    <p><a href="posts/2021/why_omscs/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/why_omscs/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/property_decorator/"
         >Using the @property decorator in data science projects</a
       >
@@ -351,18 +426,31 @@
       <li>
          <i class="fa fa-calendar"></i> 20 February 2021 
       </li>
-            
+           
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="index/tag//"></a>  
+</li>
+ 
     </ul>
-    <p>The &#64;property decorator is a simple but useful Python feature that can make your data science code easier to read and write.</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>The &#64;property decorator is a simple but useful Python feature that can make your data science code easier to read and write.</p>
 <img alt="James Powell" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" />
+</div>
 
-    <p><a href="posts/2021/property_decorator/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/property_decorator/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/singapore_math_model/"
         >The Singapore Math Model and Data Modeling with NamedTuples</a
       >
@@ -374,16 +462,18 @@
       </li>
             
     </ul>
-    <p>I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called the <strong>Singapore Math Model</strong>.</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called the <strong>Singapore Math Model</strong>.</p>
 <img alt="_images/apples_math_model.png" class="align-center" src="_images/apples_math_model.png" />
+</div>
 
-    <p><a href="posts/2021/singapore_math_model/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/singapore_math_model/"><em>Read more ...</em></a></p>
     <hr />
   </div>
   
 
-  <div class="section">
-    <h2>
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
       <a href="posts/2021/hello_world/"
         >Hello World</a
       >
@@ -395,35 +485,51 @@
       </li>
             
     </ul>
-    <p>Brand new year, brand new blog!</p>
+    <div class="ablog-post-excerpt docutils container">
+<p>Brand new year, brand new blog!</p>
+</div>
 
-    <p><a href="posts/2021/hello_world/">Read more ...</a></p>
+    <p class="ablog-post-expand"><a href="posts/2021/hello_world/"><em>Read more ...</em></a></p>
     <hr />
   </div>
    
 </div>
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-<footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
-      </p>
-    </div>
-  </footer>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright .<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
   </body>
 </html>

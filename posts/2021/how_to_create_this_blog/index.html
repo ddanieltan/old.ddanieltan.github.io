@@ -6,20 +6,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta property="og:title" content="How to create this blog" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://ddanieltan.com/posts/2021/how_to_create_this_blog.html" />
-  <meta property="og:site_name" content="https://ddanieltan.com" />
-  <meta property="og:description" content="In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are The Executable Books Project (EBP) and Sphinx. The Executable Books Proje..." />
-  <meta property="og:image" content="../../../_images/blogging_tools.png" />
-  <meta property="og:image:alt" content="https://ddanieltan.com" />
+<meta property="og:title" content="How to create this blog" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="https://ddanieltan.com/posts/2021/how_to_create_this_blog/" />
+  
+<meta property="og:site_name" content="https://ddanieltan.com" />
+  
+<meta property="og:description" content="In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are The Executable Books Project (EBP) and Sphinx. The Executable Books Proje..." />
+  
+<meta property="og:image" content="https://ddanieltan.com/_images/blogging_tools.png" />
+  
+<meta property="og:image:alt" content="https://ddanieltan.com" />
   
     <title>How to create this blog &#8212; 😁 ddanieltan.com  documentation</title>
-    
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -27,47 +38,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-186399663-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="None"> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -101,25 +106,37 @@
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../../../">
-<p class="title">😁 ddanieltan.com</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">😁 ddanieltan.com  documentation</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -152,12 +169,18 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
       </ul>
       </div>
@@ -168,12 +191,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items">
 <h3>
   <a href="../../../">✍️ Recent Posts</a>
 </h3>
@@ -198,15 +222,15 @@
   </li>
   
   <li>
-    <a href="../why_omscs/"
+    <a href="../migrate/"
       >Why I Chose OMSCS</a>
       <p>20 March 2021</p>
   </li>
   
   <li>
-    <a href="../property_decorator/"
-      >Using the @property decorator in data science projects</a>
-      <p>20 February 2021</p>
+    <a href="../why_omscs/"
+      >Why I Chose OMSCS</a>
+      <p>20 March 2021</p>
   </li>
   
 </ul>
@@ -217,7 +241,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (8)</a>
+    <a href="../../../index/2021/">2021 (9)</a>
   </li>
    
 </ul>
@@ -228,22 +252,30 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
+    <a href="../../../index/tag//"> (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (4)</a>
   </li>
      
 </ul>
 
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-<div class="tocsection onthispage pt-5 pb-3">
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -311,29 +343,27 @@
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                  <section id="how-to-create-this-blog">
-<h1>How to create this blog<a class="headerlink" href="#how-to-create-this-blog" title="Permalink to this headline">¶</a></h1>
+<h1>How to create this blog<a class="headerlink" href="#how-to-create-this-blog" title="Permalink to this headline">#</a></h1>
 <p>In this How-to, I explain the tools I used to create this blog and how you can create one of your own! The 2 core tools are <a class="reference external" href="https://executablebooks.org/en/latest/">The Executable Books Project (EBP)</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Sphinx</a>.</p>
 <a class="reference external image-reference" href="https://executablebooks.org/en/latest/"><img alt="../../../_images/blogging_tools.png" class="align-center" src="../../../_images/blogging_tools.png" /></a>
 <section id="the-executable-books-project-ebp">
-<h2>The Executable Books Project (EBP)<a class="headerlink" href="#the-executable-books-project-ebp" title="Permalink to this headline">¶</a></h2>
+<h2>The Executable Books Project (EBP)<a class="headerlink" href="#the-executable-books-project-ebp" title="Permalink to this headline">#</a></h2>
 <p>The EBP is a collection of tools under the Jupyter ecosystem focused on allowing Data Scientists (or anyone really) to create computational narratives or “executable books”. My 1st exposure to the EBP was when I came across one of their most popular tools - <a class="reference external" href="https://jupyterbook.org/">Jupyterbook</a>.</p>
 <p>Jupyterbook is a library that allows you to create your very own online textbook built up from either markdown files or Jupyter Notebooks. I had a lot of fun playing around with Jupyterbook over a weekend, and started to dream of the possibility to use the EBP tools to build a blog.</p>
 <div class="admonition note">
@@ -343,7 +373,7 @@
 <p>You can explore the entire ecosystem of tools under the EBP on this <a class="reference external" href="https://executablebooks.org/en/latest/tools.html">page</a>.</p>
 </section>
 <section id="sphinx">
-<h2>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h2>
+<h2>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this headline">#</a></h2>
 <p>Sphinx is a Python-based documentation generation tool that efficiently indexes and keeps track of content files. Amongst Sphinx’s many extensions is one called <a class="reference external" href="https://ablog.readthedocs.io/">Ablog</a>. Ablog uses Sphinx as an engine to convert my content files into html/css files that make up this site.</p>
 <div class="tip admonition">
 <p class="admonition-title">Alternative blogging tool - <a class="reference external" href="https://github.com/fastai/fastpages">Fastpages</a></p>
@@ -352,7 +382,7 @@
 </div>
 </section>
 <section id="my-reasons-for-using-ebp-sphinx">
-<h2>My reasons for using EBP + Sphinx<a class="headerlink" href="#my-reasons-for-using-ebp-sphinx" title="Permalink to this headline">¶</a></h2>
+<h2>My reasons for using EBP + Sphinx<a class="headerlink" href="#my-reasons-for-using-ebp-sphinx" title="Permalink to this headline">#</a></h2>
 <p>I am familiar with Jupyter and Sphinx because I use these tools at work
 : My goal for blogging is to practise my writing, so it’s important to me that the tooling doesn’t get too in the way.</p>
 <p>Jupyter notebooks are 1st class citizens
@@ -363,7 +393,7 @@
 : Chris is one the core members in EBP. In this blogpost, Chris explains how he rewrote his blog using EBP + Sphinx and the source code and helpful links. Thanks to this blogpost, things were simple enough for me to start working on my own. My blog and the template I will share in the next section is pretty much Chris’s starter code + a few modifications from me.</p>
 </section>
 <section id="blog-starter-template">
-<h2><a class="reference external" href="https://github.com/ddanieltan/blog_ebp_sphinx_starter">Blog Starter Template</a><a class="headerlink" href="#blog-starter-template" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference external" href="https://github.com/ddanieltan/blog_ebp_sphinx_starter">Blog Starter Template</a><a class="headerlink" href="#blog-starter-template" title="Permalink to this headline">#</a></h2>
 <div class="warning admonition">
 <p class="admonition-title">Caveat</p>
 <p>I am super happy to share my template + explain my approach to get my blog up and running.
@@ -397,7 +427,7 @@ These are the files in the repo:</p>
 </pre></div>
 </div>
 <section id="setting-up">
-<h3>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h3>
+<h3>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">#</a></h3>
 <p>Clone the repository</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ddanieltan</span><span class="o">/</span><span class="n">blog_ebp_sphinx_starter</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -420,11 +450,11 @@ These are the files in the repo:</p>
 </section>
 </section>
 <section id="how-to-write-posts">
-<h2>How to write posts<a class="headerlink" href="#how-to-write-posts" title="Permalink to this headline">¶</a></h2>
+<h2>How to write posts<a class="headerlink" href="#how-to-write-posts" title="Permalink to this headline">#</a></h2>
 <p>Any markdown file or jupyter notebook that is stored under <code class="docutils literal notranslate"><span class="pre">posts/</span></code> will be picked up and converted into a html page. Ensure you have <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">title</span></code> metadata filled in for any post that you want to show up. Posts without dates are treated as Drafts and won’t be published in your regular blog roll.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="695a7321-561a-4cf9-827b-b02d9b40160d" name="2d6e0bdf-510e-4e44-996b-1d94392f9e73" type="radio">
-</input><label class="tabbed-label" for="695a7321-561a-4cf9-827b-b02d9b40160d">
+<input checked="checked" id="9aacb0ee-ff94-4b34-b14a-7f19116c540e" name="d96f3edd-22b7-4657-8d62-057c82989c06" type="radio">
+</input><label class="tabbed-label" for="9aacb0ee-ff94-4b34-b14a-7f19116c540e">
 Example blogpost.md</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 <span class="n">date</span> <span class="p">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
@@ -437,8 +467,8 @@ Example blogpost.md</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="23d125ea-5cac-4558-a2c4-b9d457d4fcf7" name="2d6e0bdf-510e-4e44-996b-1d94392f9e73" type="radio">
-</input><label class="tabbed-label" for="23d125ea-5cac-4558-a2c4-b9d457d4fcf7">
+<input id="0486219d-e7e7-4dd2-a760-52fdfd0b08a5" name="d96f3edd-22b7-4657-8d62-057c82989c06" type="radio">
+</input><label class="tabbed-label" for="0486219d-e7e7-4dd2-a760-52fdfd0b08a5">
 Example blogpost.ipynb</label><div class="tabbed-content docutils">
 <img alt="../../../_images/jupyter_metadata.png" class="align-center" src="../../../_images/jupyter_metadata.png" />
 </div>
@@ -451,10 +481,10 @@ Example blogpost.ipynb</label><div class="tabbed-content docutils">
 <p>In my opinion, this is what makes this approach for writing blogs shine! Unlike many other blogging solutions, every post lives as an executable piece of code, while still giving the author control over the look and narrative of this post when it goes unto the web.</p>
 </section>
 <section id="miscellaneous-details">
-<h2>Miscellaneous details<a class="headerlink" href="#miscellaneous-details" title="Permalink to this headline">¶</a></h2>
+<h2>Miscellaneous details<a class="headerlink" href="#miscellaneous-details" title="Permalink to this headline">#</a></h2>
 <p>When I was building this blog, I ran into areas I did not find entirely straightforward. Here are some notes I wrote that might help you if you run into any roadblocks.</p>
 <section id="conf-py">
-<h3>conf.py<a class="headerlink" href="#conf-py" title="Permalink to this headline">¶</a></h3>
+<h3>conf.py<a class="headerlink" href="#conf-py" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is the main configuration file for the entire project and it contains a lot of settings. My advice is to really experiment and play around with all these settings to understand the extent of how to make this blog your own.</p>
 <p>When it comes to exploring the full list of configurable options we will hit 1 of the downsides of my approach to creating a blog. As we are are using separate libraries, we don’t have a single centralized place that records all the configurable options in this project. So for any existing of new configuration you want to implement, you will need to spend some time exploring the following resoures:</p>
 <ul class="simple">
@@ -465,11 +495,11 @@ Example blogpost.ipynb</label><div class="tabbed-content docutils">
 </ul>
 </section>
 <section id="index-md">
-<h3>index.md<a class="headerlink" href="#index-md" title="Permalink to this headline">¶</a></h3>
+<h3>index.md<a class="headerlink" href="#index-md" title="Permalink to this headline">#</a></h3>
 <p>Every html output page has an equivalent markdown/Jupyter notebook page. Most pages are rather self explanatory, for example you can compare the output of The order of the pages in the topbar of the site inherits from the <code class="docutils literal notranslate"><span class="pre">toctree</span></code>.</p>
 </section>
 <section id="customizing-html-and-css">
-<h3>Customizing html and css<a class="headerlink" href="#customizing-html-and-css" title="Permalink to this headline">¶</a></h3>
+<h3>Customizing html and css<a class="headerlink" href="#customizing-html-and-css" title="Permalink to this headline">#</a></h3>
 <p>There were some customizations I wanted to make to my site that did not have a <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> API.</p>
 <p>For example, by default, “Build with Sphinx &lt;version&gt;” is written in every <code class="docutils literal notranslate"><span class="pre">footer.html</span></code>. While I definitely wanted to attribute my blog to Sphinx, but equally, I wanted to attribute the tools from EBP. As I could not find a way to configure my footer message in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, my eventual solution was simply to overwrite the <code class="docutils literal notranslate"><span class="pre">footer.html</span></code> in <code class="docutils literal notranslate"><span class="pre">_templates/</span></code> with the message you currently see.</p>
 <p><code class="docutils literal notranslate"><span class="pre">footer.html</span></code> is written in the <a class="reference external" href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja templating language</a>, which means you can probably elegantly use the <code class="docutils literal notranslate"><span class="pre">{extends}</span></code> pattern to append added code. However, as I’m honestly quite new to front end coding, I just overwrote the entire file using code taken from its <a class="reference external" href="https://github.com/pandas-dev/pydata-sphinx-theme/blob/master/pydata_sphinx_theme/footer.html">source</a>.</p>
@@ -478,13 +508,14 @@ Example blogpost.ipynb</label><div class="tabbed-content docutils">
 </section>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>I think I speak for many when I say that I know that blogging is an incredibly useful thing to do, but there’s  always so much inertia to start and maintain a blog. These set of tools really helped inspire me to get past my inertia to start my blog, and I hope that this post will help you to start yours too! 👍</p>
 </section>
 </section>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -508,27 +539,41 @@ Example blogpost.ipynb</label><div class="tabbed-content docutils">
   
 </div>
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
-  
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-<footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
-      </p>
-    </div>
-  </footer>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright .<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
   </body>
 </html>

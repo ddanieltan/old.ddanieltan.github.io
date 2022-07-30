@@ -6,20 +6,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta property="og:title" content="The Singapore Math Model and Data Modeling with NamedTuples" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://ddanieltan.com/posts/2021/singapore_math_model.html" />
-  <meta property="og:site_name" content="https://ddanieltan.com" />
-  <meta property="og:description" content="The Singapore Math Model: I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called ..." />
-  <meta property="og:image" content="../../../_images/apples_math_model.png" />
-  <meta property="og:image:alt" content="https://ddanieltan.com" />
+<meta property="og:title" content="The Singapore Math Model and Data Modeling with NamedTuples" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="https://ddanieltan.com/posts/2021/singapore_math_model/" />
+  
+<meta property="og:site_name" content="https://ddanieltan.com" />
+  
+<meta property="og:description" content="The Singapore Math Model: I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called ..." />
+  
+<meta property="og:image" content="https://ddanieltan.com/_images/apples_math_model.png" />
+  
+<meta property="og:image:alt" content="https://ddanieltan.com" />
   
     <title>The Singapore Math Model and Data Modeling with NamedTuples &#8212; 😁 ddanieltan.com  documentation</title>
-    
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -27,47 +38,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-186399663-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="None"> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -101,25 +106,37 @@
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../../../">
-<p class="title">😁 ddanieltan.com</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">😁 ddanieltan.com  documentation</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -152,12 +169,18 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
       </ul>
       </div>
@@ -168,12 +191,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items">
 <h3>
   <a href="../../../">✍️ Recent Posts</a>
 </h3>
@@ -204,7 +228,7 @@
   </li>
   
   <li>
-    <a href="../why_omscs/"
+    <a href="../migrate/"
       >Why I Chose OMSCS</a>
       <p>20 March 2021</p>
   </li>
@@ -217,7 +241,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (8)</a>
+    <a href="../../../index/2021/">2021 (9)</a>
   </li>
    
 </ul>
@@ -228,22 +252,30 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
+    <a href="../../../index/tag//"> (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (4)</a>
   </li>
      
 </ul>
 
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-<div class="tocsection onthispage pt-5 pb-3">
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -277,27 +309,25 @@
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                  <section id="the-singapore-math-model-and-data-modeling-with-namedtuples">
-<h1>The Singapore Math Model and Data Modeling with NamedTuples<a class="headerlink" href="#the-singapore-math-model-and-data-modeling-with-namedtuples" title="Permalink to this headline">¶</a></h1>
+<h1>The Singapore Math Model and Data Modeling with NamedTuples<a class="headerlink" href="#the-singapore-math-model-and-data-modeling-with-namedtuples" title="Permalink to this headline">#</a></h1>
 <section id="the-singapore-math-model">
-<h2>The Singapore Math Model<a class="headerlink" href="#the-singapore-math-model" title="Permalink to this headline">¶</a></h2>
+<h2>The Singapore Math Model<a class="headerlink" href="#the-singapore-math-model" title="Permalink to this headline">#</a></h2>
 <p>I learnt this week that besides the ban on chewing gum, our world famous airport and year-round summer weather, Singapore has another iconic international “export” called the <strong>Singapore Math Model</strong>.</p>
 <p>The Singapore Math Model is a common approach taught in the Singapore’s primary schools to students to solve math word problems.</p>
 <blockquote>
@@ -305,7 +335,7 @@
 How many apples does Terry have?</p>
 </div></blockquote>
 <p>Using the Singapore Math Model approach, children are taught the following:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Do not jump straight into answering the question, let’s take our time to understand the question first.</p></li>
 <li><p>Let’s draw 2 bar models, one for representing the number of apples Andy has and one for the number of apples Terry has</p></li>
 <li><p>Next, let’s capture that the question has told us the total number of apples is 36</p></li>
@@ -331,7 +361,7 @@ How many adults and how many children are there?</p>
 </div></blockquote>
 </section>
 <section id="commercialization-and-namesake">
-<h2>Commercialization and Namesake<a class="headerlink" href="#commercialization-and-namesake" title="Permalink to this headline">¶</a></h2>
+<h2>Commercialization and Namesake<a class="headerlink" href="#commercialization-and-namesake" title="Permalink to this headline">#</a></h2>
 <p>As a Singaporean myself, learning this method as a child, it never occured to me that these techniques were anything out of the ordinary. To me, this was simply Math lessons and I thought Math all around the world was taught the same way.</p>
 <p>So, it was really fascinating to learn that “Singapore Math” is very much a “thing”. It has it’s own <a class="reference external" href="https://en.wikipedia.org/wiki/Singapore_math">wikipedia entry</a> and publishers have successfully <a class="reference external" href="https://www.amazon.sg/Singapore-Model-Method-Learning-Mathematics/dp/B0033HXD1K">sold</a> <a class="reference external" href="https://www.amazon.sg/Step-Step-Model-Drawing-Singapore/dp/1934026964/">many</a> <a class="reference external" href="https://www.amazon.sg/Math-Focus-Singapore-Professional-Development/dp/9810168683/">books</a> teaching the Singapore Math Method internationally. I find it amusing that a few entreprenuerial minds have essentially figured out how to commercialize public education.</p>
 <div class="admonition note">
@@ -342,7 +372,7 @@ How many adults and how many children are there?</p>
 </div>
 </section>
 <section id="why-the-singapore-math-model-works">
-<h2>Why the Singapore Math Model works<a class="headerlink" href="#why-the-singapore-math-model-works" title="Permalink to this headline">¶</a></h2>
+<h2>Why the Singapore Math Model works<a class="headerlink" href="#why-the-singapore-math-model-works" title="Permalink to this headline">#</a></h2>
 <p>Beyond being a gentle entry to Algebra, I believe the Singapore Math Model works because it also provided a framework for problem solving.</p>
 <p>Specifically, it provided a framework for students to:</p>
 <ul class="simple">
@@ -353,7 +383,7 @@ How many adults and how many children are there?</p>
 <p>These steps (more generally referred to as <strong>Data Modeling</strong>) is what I like best about the Singapore Math Model method. These are universaly principles I still fall back on when approaching any coding problem. While there are many tools in Python (eg. Classes, dataclasses) that offer convenient ways to implement Data Modelling, my favourite is to use NamedTuples from the <a class="reference external" href="https://docs.python.org/3/library/typing.html">typing library</a>.</p>
 </section>
 <section id="data-modeling-with-namedtuples">
-<h2>Data Modeling with NamedTuples<a class="headerlink" href="#data-modeling-with-namedtuples" title="Permalink to this headline">¶</a></h2>
+<h2>Data Modeling with NamedTuples<a class="headerlink" href="#data-modeling-with-namedtuples" title="Permalink to this headline">#</a></h2>
 <p>As an example, let’s tackle a question that has a large amount of information to digest. Take a look at this question prompt for <a class="reference external" href="https://adventofcode.com/2020/day/3">2020’s Advent of Code Day 3</a>.
 This is a really good example of a question that doesn’t require a complex solution, but requires you to 1st digest and structure the important details of the question.</p>
 <p>The solution to this problem boils down to how we structure and handle:</p>
@@ -436,7 +466,7 @@ This is a really good example of a question that doesn’t require a complex sol
 </div>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>I hope it has been valuable to see how we have taken a problem that required an entire page to describe, and modelled the key details concisely in just a couple lines of code. The benefit of taking some time upfront to model the question provides greater clarity, and is an invaluable part of my problem solving toolkit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -446,7 +476,8 @@ This is a really good example of a question that doesn’t require a complex sol
 </section>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -470,27 +501,41 @@ This is a really good example of a question that doesn’t require a complex sol
   
 </div>
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
-  
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-<footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
-      </p>
-    </div>
-  </footer>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright .<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
   </body>
 </html>

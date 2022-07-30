@@ -6,18 +6,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta property="og:title" content="Hello World" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://ddanieltan.com/posts/2021/hello_world.html" />
-  <meta property="og:site_name" content="https://ddanieltan.com" />
-  <meta property="og:description" content="Brand new year, brand new blog! Hello, my name is Daniel. I’ve embarked and committed to on a couple important projects and decisions this year, and I thought it would be a good opportunity to star..." />
+<meta property="og:title" content="Hello World" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="https://ddanieltan.com/posts/2021/hello_world/" />
+  
+<meta property="og:site_name" content="https://ddanieltan.com" />
+  
+<meta property="og:description" content="Brand new year, brand new blog! Hello, my name is Daniel. I’ve embarked and committed to on a couple important projects and decisions this year, and I thought it would be a good opportunity to star..." />
   
     <title>Hello World &#8212; 😁 ddanieltan.com  documentation</title>
-    
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -25,47 +34,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-186399663-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="None"> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -99,25 +102,37 @@
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../../../">
-<p class="title">😁 ddanieltan.com</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">😁 ddanieltan.com  documentation</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -150,12 +165,18 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
       </ul>
       </div>
@@ -166,12 +187,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items">
 <h3>
   <a href="../../../">✍️ Recent Posts</a>
 </h3>
@@ -202,7 +224,7 @@
   </li>
   
   <li>
-    <a href="../why_omscs/"
+    <a href="../migrate/"
       >Why I Chose OMSCS</a>
       <p>20 March 2021</p>
   </li>
@@ -215,7 +237,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (8)</a>
+    <a href="../../../index/2021/">2021 (9)</a>
   </li>
    
 </ul>
@@ -226,22 +248,30 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
+    <a href="../../../index/tag//"> (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (4)</a>
   </li>
      
 </ul>
 
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-<div class="tocsection onthispage pt-5 pb-3">
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -265,38 +295,36 @@
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                  <section id="hello-world">
-<h1>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<h1>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">#</a></h1>
 <p>Brand new year, brand new blog!</p>
 <p>Hello, my name is Daniel. I’ve embarked and committed to on a couple important projects and decisions this year, and I thought it would be a good opportunity to start blogging. This year:</p>
 <section id="i-m-planning-to-write-more-and-show-my-work">
-<h2>I’m planning to write more and <a class="reference external" href="https://www.goodreads.com/book/show/18290401-show-your-work">show my work</a>.<a class="headerlink" href="#i-m-planning-to-write-more-and-show-my-work" title="Permalink to this headline">¶</a></h2>
+<h2>I’m planning to write more and <a class="reference external" href="https://www.goodreads.com/book/show/18290401-show-your-work">show my work</a>.<a class="headerlink" href="#i-m-planning-to-write-more-and-show-my-work" title="Permalink to this headline">#</a></h2>
 <p>In 2020, a snap decision to share my story online <a class="reference external" href="https://www.linkedin.com/posts/ddanieltan_ocbc-bank-posted-on-linkedin-activity-6682138292223381504-ENZA">led me to my current team</a>, and that entire process opened my eyes to the importance of being able to communicate a story through writing. More than ever, I’m convinced of the importance of practising writing. Not to mention, I had an interesting experience navigating data science interviews in a post-covid world and I have many thoughts and tips that I would like to blog about.</p>
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6682130420621987841?compact=1" height="284" width="504" frameborder="0" allowfullscreen="" title="How I came to join OCBC" align="center"></iframe>
 </section>
 <section id="i-m-starting-the-georgia-tech-omscs-programme">
-<h2>I’m starting the <a class="reference external" href="https://omscs.gatech.edu/">Georgia Tech OMSCS programme</a>.<a class="headerlink" href="#i-m-starting-the-georgia-tech-omscs-programme" title="Permalink to this headline">¶</a></h2>
+<h2>I’m starting the <a class="reference external" href="https://omscs.gatech.edu/">Georgia Tech OMSCS programme</a>.<a class="headerlink" href="#i-m-starting-the-georgia-tech-omscs-programme" title="Permalink to this headline">#</a></h2>
 <p>I have long heard many positive reviews about this Masters programme and decided to take the plunge this year. My goal is to build up my computer science skills to make me a more well-rounded data scientist. I expect that I’ll have plenty to blog about the OMSCS programme, as well as, thoughts on specific courses as I go through them.</p>
 </section>
 <section id="i-discovered-the-executable-book-project">
-<h2>I discovered the <a class="reference external" href="https://executablebooks.org/">Executable Book Project</a><a class="headerlink" href="#i-discovered-the-executable-book-project" title="Permalink to this headline">¶</a></h2>
+<h2>I discovered the <a class="reference external" href="https://executablebooks.org/">Executable Book Project</a><a class="headerlink" href="#i-discovered-the-executable-book-project" title="Permalink to this headline">#</a></h2>
 <p>EBP’s tools have inspired me to explore website building! Their many projects, such as <a class="reference external" href="https://github.com/executablebooks/MyST-NB">MyST-NB</a> and <a class="reference external" href="https://github.com/executablebooks/jupyter-book">jupyter-book</a>, allow me to use the data science tools I’m familiar with, to create front-end websites (which I’m thoroughly <em>unfamiliar</em> with). I  believe the textbooks of our future generations will be primarily written as executable books, and I’m eager to use this blog to practise writing using these tools.</p>
 <p>So that’s my plan for 2021! Hope I’ll be able to generate some interesting and valuable content for you. 😄
 Feedback is always welcome, you can find my contact details on my <a class="reference internal" href="../../../about/"><span class="doc std std-doc">About me</span></a> page.</p>
@@ -304,7 +332,8 @@ Feedback is always welcome, you can find my contact details on my <a class="refe
 </section>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
     
@@ -324,27 +353,41 @@ Feedback is always welcome, you can find my contact details on my <a class="refe
   
 </div>
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
-  
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-<footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
-      </p>
-    </div>
-  </footer>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright .<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
   </body>
 </html>

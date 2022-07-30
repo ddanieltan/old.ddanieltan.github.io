@@ -6,20 +6,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta property="og:title" content="Using the @property decorator in data science projects" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://ddanieltan.com/posts/2021/property_decorator.html" />
-  <meta property="og:site_name" content="https://ddanieltan.com" />
-  <meta property="og:description" content="The @property decorator is a simple but useful Python feature that can make your data science code easier to read and write. The scenario: Let’s say you have just completed a small but useful data ..." />
-  <meta property="og:image" content="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" />
-  <meta property="og:image:alt" content="James Powell" />
+<meta property="og:title" content="Using the @property decorator in data science projects" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="https://ddanieltan.com/posts/2021/property_decorator/" />
+  
+<meta property="og:site_name" content="https://ddanieltan.com" />
+  
+<meta property="og:description" content="The @property decorator is a simple but useful Python feature that can make your data science code easier to read and write. The scenario: Let’s say you have just completed a small but useful data ..." />
+  
+<meta property="og:image" content="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" />
+  
+<meta property="og:image:alt" content="James Powell" />
   
     <title>Using the @property decorator in data science projects &#8212; 😁 ddanieltan.com  documentation</title>
-    
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -27,47 +38,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-186399663-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="None"> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -101,25 +106,37 @@
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../../../">
-<p class="title">😁 ddanieltan.com</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">😁 ddanieltan.com  documentation</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -152,12 +169,18 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
       </ul>
       </div>
@@ -168,12 +191,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items">
 <h3>
   <a href="../../../">✍️ Recent Posts</a>
 </h3>
@@ -204,7 +228,7 @@
   </li>
   
   <li>
-    <a href="../why_omscs/"
+    <a href="../migrate/"
       >Why I Chose OMSCS</a>
       <p>20 March 2021</p>
   </li>
@@ -217,7 +241,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (8)</a>
+    <a href="../../../index/2021/">2021 (9)</a>
   </li>
    
 </ul>
@@ -228,22 +252,30 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
+    <a href="../../../index/tag//"> (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (4)</a>
   </li>
      
 </ul>
 
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-<div class="tocsection onthispage pt-5 pb-3">
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -311,28 +343,26 @@
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                  <section id="using-the-property-decorator-in-data-science-projects">
-<h1>Using the &#64;property decorator in data science projects<a class="headerlink" href="#using-the-property-decorator-in-data-science-projects" title="Permalink to this headline">¶</a></h1>
+<h1>Using the &#64;property decorator in data science projects<a class="headerlink" href="#using-the-property-decorator-in-data-science-projects" title="Permalink to this headline">#</a></h1>
 <p>The &#64;property decorator is a simple but useful Python feature that can make your data science code easier to read and write.</p>
 <section id="the-scenario">
-<h2>The scenario<a class="headerlink" href="#the-scenario" title="Permalink to this headline">¶</a></h2>
+<h2>The scenario<a class="headerlink" href="#the-scenario" title="Permalink to this headline">#</a></h2>
 <p>Let’s say you have just completed a small but useful data science project that looks something like this.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -360,7 +390,7 @@
 For example, we can imagine that the <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> class might be useful for another data scientist who also requires data preparation. Likewise, perhaps the <code class="docutils literal notranslate"><span class="pre">CustomFeatureEngineering</span></code> class can make the development cycle for a data scientist starting on a brand new project that much quicker by reimplementing a common set of features.</p>
 </section>
 <section id="illustration">
-<h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">¶</a></h2>
+<h2>Illustration<a class="headerlink" href="#illustration" title="Permalink to this headline">#</a></h2>
 <p>Let’s sketch out how our <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> class might look in this scenario.
 Briefly, let us imagine that this class does the following:</p>
 <ul class="simple">
@@ -399,11 +429,11 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </section>
 <section id="example-issues">
-<h2>Example issues<a class="headerlink" href="#example-issues" title="Permalink to this headline">¶</a></h2>
+<h2>Example issues<a class="headerlink" href="#example-issues" title="Permalink to this headline">#</a></h2>
 <p>The next step is simply to share the code with the team! And it’s really with good intentions, that we do so, because genuinely, classes like the one in our example do have the potential for increasing everyone’s productivity.</p>
 <p>However, it is not out of the question that the following example issues crop up when others try using your code.</p>
 <section id="accidentally-overwriting-or-deleting-parameters">
-<h3>Accidentally overwriting or deleting parameters<a class="headerlink" href="#accidentally-overwriting-or-deleting-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Accidentally overwriting or deleting parameters<a class="headerlink" href="#accidentally-overwriting-or-deleting-parameters" title="Permalink to this headline">#</a></h3>
 <p>Perhaps accidentally (within a long script), a crucial parameter was overwritten. This might cause the main script to break, or worse, the script does not break but instead is working on erroneous data that only gets caught much later down the line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,7 +450,7 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </section>
 <section id="accessing-parameters-at-the-wrong-time">
-<h3>Accessing parameters at the wrong time<a class="headerlink" href="#accessing-parameters-at-the-wrong-time" title="Permalink to this headline">¶</a></h3>
+<h3>Accessing parameters at the wrong time<a class="headerlink" href="#accessing-parameters-at-the-wrong-time" title="Permalink to this headline">#</a></h3>
 <p>When <code class="docutils literal notranslate"><span class="pre">CustomDataPrep</span></code> is initialized, the <code class="docutils literal notranslate"><span class="pre">df</span></code> parameter that will hold our final dataframe is initialized as <code class="docutils literal notranslate"><span class="pre">None</span></code>. Our intention is that the user should first call the <code class="docutils literal notranslate"><span class="pre">data_prep()</span></code> function before trying to access <code class="docutils literal notranslate"><span class="pre">df</span></code>, but nothing actually stops users from accessing <code class="docutils literal notranslate"><span class="pre">df</span></code> at any point in time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -452,7 +482,7 @@ Briefly, let us imagine that this class does the following:</p>
 </section>
 </section>
 <section id="library-code-vs-user-code">
-<h2>Library code vs. User code<a class="headerlink" href="#library-code-vs-user-code" title="Permalink to this headline">¶</a></h2>
+<h2>Library code vs. User code<a class="headerlink" href="#library-code-vs-user-code" title="Permalink to this headline">#</a></h2>
 <p>The above examples are my personal experiences of the concerns between writing Library code vs. User code. I first learnt of this situation from a (rather provacatively named 😝) video - <a class="reference external" href="https://youtu.be/cKPlPJyQrt4">PyData Seattle 2017 - So you want to be a Python Expert?</a> (around the 22:30 mark).</p>
 <p><a class="reference external" href="http://www.youtube.com/watch?v=cKPlPJyQrt4"><img alt="James Powell" src="http://img.youtube.com/vi/cKPlPJyQrt4/0.jpg" /></a></p>
 <p>The entire section on Library vs User code covers multiple different angles, but in the context of my data science example, I would highlight these key points:</p>
@@ -464,10 +494,10 @@ Briefly, let us imagine that this class does the following:</p>
 <p>So really, the question I want to answer is - <strong>How do we write our library code to minimize these potential issues/errors</strong>?</p>
 </section>
 <section id="the-property-decorator">
-<h2>The &#64;property decorator<a class="headerlink" href="#the-property-decorator" title="Permalink to this headline">¶</a></h2>
+<h2>The &#64;property decorator<a class="headerlink" href="#the-property-decorator" title="Permalink to this headline">#</a></h2>
 <p>The &#64;property decorator a Python built-in, that allows you to have a little more control over the attributes of your classes. Used correctly, it can minimize some of the issues mentioned above. Here are some examples.</p>
 <section id="getters-setters-and-deleters">
-<h3>Getters, setters and deleters<a class="headerlink" href="#getters-setters-and-deleters" title="Permalink to this headline">¶</a></h3>
+<h3>Getters, setters and deleters<a class="headerlink" href="#getters-setters-and-deleters" title="Permalink to this headline">#</a></h3>
 <p>So recall in our 1st issue, we had a situation where the user of our library code accidentally overwrote the <code class="docutils literal notranslate"><span class="pre">data_source</span></code> attribute. Suppose as the author of the library code, you wanted to give users the ability to inspect <code class="docutils literal notranslate"><span class="pre">data_source</span></code> but you wanted to protect them from accidentally modifying <code class="docutils literal notranslate"><span class="pre">data_source</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -617,7 +647,7 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </section>
 <section id="readability">
-<h3>Readability<a class="headerlink" href="#readability" title="Permalink to this headline">¶</a></h3>
+<h3>Readability<a class="headerlink" href="#readability" title="Permalink to this headline">#</a></h3>
 <p>If you have worked with other OOP languages before (eg. Java, C++) this concept of separating what variables are private or public, properly termed as <a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">Encapsulation</a>, will not be new. Where the &#64;property adds value here is achieving the same result with much less boilerplate, namespace pollution and more readable code.</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
@@ -665,7 +695,7 @@ Briefly, let us imagine that this class does the following:</p>
 </div>
 </section>
 <section id="encourages-the-good-habit-of-using-underscore-prefix">
-<h3>Encourages the good habit of using underscore prefix<a class="headerlink" href="#encourages-the-good-habit-of-using-underscore-prefix" title="Permalink to this headline">¶</a></h3>
+<h3>Encourages the good habit of using underscore prefix<a class="headerlink" href="#encourages-the-good-habit-of-using-underscore-prefix" title="Permalink to this headline">#</a></h3>
 <p>You might have also noticed that when we introduced the property decorator, we also slipped in another change. All the attributes initialized under the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method now have an underscore prefix e.g. <code class="docutils literal notranslate"><span class="pre">_data_source</span></code>.</p>
 <p>This is a PEP8 convention that Python uses to signal that this attribute or method belongs privately to its class. Python (prefering to give more flexibility to users) does not enforce private/public distinctions.</p>
 <p>So practically, the reason why we use this convention is to give our users a subtle hint that they are accessing a private attribute, and to take an extra second to consider if they are writing safe code.</p>
@@ -677,13 +707,14 @@ Briefly, let us imagine that this class does the following:</p>
 </section>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>Ultimately, the dynamics between library and user code covers way more potential issues than what I illustrated in this blog post. But the &#64;property decorator is a small little fix that goes a long way in covering some of the more common issues. I have used it obsessively since learning about it and I hope it provides value for you too.</p>
 </section>
 </section>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -695,7 +726,7 @@ Briefly, let us imagine that this class does the following:</p>
   <span>&nbsp;</span>
   <span style="float: right">
      
-    <a href="../why_omscs/">
+    <a href="../migrate/">
       Why I Chose OMSCS <i
         class="fa fa-arrow-circle-right"
       ></i
@@ -707,27 +738,41 @@ Briefly, let us imagine that this class does the following:</p>
   
 </div>
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
-  
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-<footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
-      </p>
-    </div>
-  </footer>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright .<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
   </body>
 </html>

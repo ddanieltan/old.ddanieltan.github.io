@@ -6,20 +6,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta property="og:title" content="Useful things you can do with Sets in Python" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://ddanieltan.com/posts/2021/useful_sets.html" />
-  <meta property="og:site_name" content="https://ddanieltan.com" />
-  <meta property="og:description" content="Perhaps Python’s most underrated built-in I don’t use Sets as often as I should: I have noticed that everytime I need to create a collection/data structure in Python, I almost always default to: a ..." />
-  <meta property="og:image" content="../../../_images/undraw_sorting_thoughts.png" />
-  <meta property="og:image:alt" content="https://ddanieltan.com" />
+<meta property="og:title" content="Useful things you can do with Sets in Python" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="https://ddanieltan.com/posts/2021/useful_sets/" />
+  
+<meta property="og:site_name" content="https://ddanieltan.com" />
+  
+<meta property="og:description" content="Perhaps Python’s most underrated built-in I don’t use Sets as often as I should: I have noticed that everytime I need to create a collection/data structure in Python, I almost always default to: a ..." />
+  
+<meta property="og:image" content="https://ddanieltan.com/_images/undraw_sorting_thoughts.png" />
+  
+<meta property="og:image:alt" content="https://ddanieltan.com" />
   
     <title>Useful things you can do with Sets in Python &#8212; 😁 ddanieltan.com  documentation</title>
-    
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -27,47 +38,41 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-186399663-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="shortcut icon" href="../../../_static/magnifying.ico"/>
     <link rel="author" title="About these documents" href="../../../about/" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-186399663-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="None"> 
 <link
   rel="alternate"
   type="application/atom+xml"
@@ -101,25 +106,37 @@
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../../../">
-<p class="title">😁 ddanieltan.com</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../../../">
+  
+  
+  
+  
+  
+    <p class="title logo__title">😁 ddanieltan.com  documentation</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -152,12 +169,18 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
+          <a class="nav-link" href="https://github.com/ddanieltan" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
         </li>
       </ul>
       </div>
@@ -168,12 +191,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items">
 <h3>
   <a href="../../../">✍️ Recent Posts</a>
 </h3>
@@ -198,15 +222,15 @@
   </li>
   
   <li>
-    <a href="../why_omscs/"
+    <a href="../migrate/"
       >Why I Chose OMSCS</a>
       <p>20 March 2021</p>
   </li>
   
   <li>
-    <a href="../property_decorator/"
-      >Using the @property decorator in data science projects</a>
-      <p>20 February 2021</p>
+    <a href="../why_omscs/"
+      >Why I Chose OMSCS</a>
+      <p>20 March 2021</p>
   </li>
   
 </ul>
@@ -217,7 +241,7 @@
 <ul>
    
   <li>
-    <a href="../../../index/2021/">2021 (8)</a>
+    <a href="../../../index/2021/">2021 (9)</a>
   </li>
    
 </ul>
@@ -228,22 +252,30 @@
 <ul>
    
   <li>
-    <a href="../../../index/tag/omscs/">OMSCS (3)</a>
+    <a href="../../../index/tag//"> (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../index/tag/omscs/">OMSCS (4)</a>
   </li>
      
 </ul>
 
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-<div class="tocsection onthispage pt-5 pb-3">
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -318,28 +350,26 @@
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                  <section id="useful-things-you-can-do-with-sets-in-python">
-<h1>Useful things you can do with Sets in Python<a class="headerlink" href="#useful-things-you-can-do-with-sets-in-python" title="Permalink to this headline">¶</a></h1>
+<h1>Useful things you can do with Sets in Python<a class="headerlink" href="#useful-things-you-can-do-with-sets-in-python" title="Permalink to this headline">#</a></h1>
 <p>Perhaps Python’s most underrated built-in</p>
 <section id="i-don-t-use-sets-as-often-as-i-should">
-<h2>I don’t use Sets as often as I should<a class="headerlink" href="#i-don-t-use-sets-as-often-as-i-should" title="Permalink to this headline">¶</a></h2>
+<h2>I don’t use Sets as often as I should<a class="headerlink" href="#i-don-t-use-sets-as-often-as-i-should" title="Permalink to this headline">#</a></h2>
 <p>I have noticed that everytime I need to create a collection/data structure in Python, I almost always default to:</p>
 <ul class="simple">
 <li><p>a list (about 90% of the time)</p></li>
@@ -350,7 +380,7 @@
 <img alt="../../../_images/undraw_sorting_thoughts.png" class="align-center" src="../../../_images/undraw_sorting_thoughts.png" />
 </section>
 <section id="removing-duplicate-elements">
-<h2>Removing duplicate elements<a class="headerlink" href="#removing-duplicate-elements" title="Permalink to this headline">¶</a></h2>
+<h2>Removing duplicate elements<a class="headerlink" href="#removing-duplicate-elements" title="Permalink to this headline">#</a></h2>
 <p>A set can only contain unique elements, and this property makes sets a very convenient data structure for removing duplicates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -383,10 +413,10 @@
 </div>
 </section>
 <section id="set-theory">
-<h2>Set Theory<a class="headerlink" href="#set-theory" title="Permalink to this headline">¶</a></h2>
+<h2>Set Theory<a class="headerlink" href="#set-theory" title="Permalink to this headline">#</a></h2>
 <p>The concept of a Set in Python comes from <a class="reference external" href="https://en.wikipedia.org/wiki/Set_theory">Set Theory</a>, which is a foundational branch of Mathematics that teaches us how we can think about collections of objects or numbers. Probably, Set Theory was your 1st introduction to the famous Venn Diagram, and it’s related concepts such as Unions and Intersections. Just like what we learnt in Math class, we can perform the following useful operations on 2 or more Python Sets.</p>
 <section id="union">
-<h3>Union<a class="headerlink" href="#union" title="Permalink to this headline">¶</a></h3>
+<h3>Union<a class="headerlink" href="#union" title="Permalink to this headline">#</a></h3>
 <p>Join 2 or more Sets and return the non-duplicated results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -407,7 +437,7 @@
 </div>
 </section>
 <section id="intersection">
-<h3>Intersection<a class="headerlink" href="#intersection" title="Permalink to this headline">¶</a></h3>
+<h3>Intersection<a class="headerlink" href="#intersection" title="Permalink to this headline">#</a></h3>
 <p>Return only the common elements in 2 or more Sets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -434,7 +464,7 @@
 </div>
 </section>
 <section id="difference">
-<h3>Difference<a class="headerlink" href="#difference" title="Permalink to this headline">¶</a></h3>
+<h3>Difference<a class="headerlink" href="#difference" title="Permalink to this headline">#</a></h3>
 <p>Return only the non-common elements between 2 or more sets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -455,10 +485,10 @@
 </section>
 </section>
 <section id="conditional-checks">
-<h2>Conditional Checks<a class="headerlink" href="#conditional-checks" title="Permalink to this headline">¶</a></h2>
+<h2>Conditional Checks<a class="headerlink" href="#conditional-checks" title="Permalink to this headline">#</a></h2>
 <p>I also categorize several Set methods under the purpose of performing some type of conditional check and returning either a True or False boolean. These are particularly useful and fast operations to add to long scripts or unit tests.</p>
 <section id="isdisjoint">
-<h3>Isdisjoint<a class="headerlink" href="#isdisjoint" title="Permalink to this headline">¶</a></h3>
+<h3>Isdisjoint<a class="headerlink" href="#isdisjoint" title="Permalink to this headline">#</a></h3>
 <p>Returns True if no elements between 2 Sets are common, and False if there is at least 1 common element.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,7 +522,7 @@
 </div>
 </section>
 <section id="issubset-and-issuperset">
-<h3>Issubset and Issuperset<a class="headerlink" href="#issubset-and-issuperset" title="Permalink to this headline">¶</a></h3>
+<h3>Issubset and Issuperset<a class="headerlink" href="#issubset-and-issuperset" title="Permalink to this headline">#</a></h3>
 <p>In this signature <code class="docutils literal notranslate"><span class="pre">primary.method(secondary)</span></code>:</p>
 <p>Issubset returns True if all the elements of the primary set are members of the secondary set, returns False otherwise.</p>
 <p>Issuperset returns True if all the elements of the secondary set are members of the primary set, return False otherwise.</p>
@@ -529,10 +559,10 @@
 </section>
 </section>
 <section id="special-use-cases">
-<h2>Special use cases<a class="headerlink" href="#special-use-cases" title="Permalink to this headline">¶</a></h2>
+<h2>Special use cases<a class="headerlink" href="#special-use-cases" title="Permalink to this headline">#</a></h2>
 <p>Lastly, there are a lot of special use cases that are neat and novels ways to use Sets.</p>
 <section id="speedy-check-for-membership">
-<h3>Speedy check for membership<a class="headerlink" href="#speedy-check-for-membership" title="Permalink to this headline">¶</a></h3>
+<h3>Speedy check for membership<a class="headerlink" href="#speedy-check-for-membership" title="Permalink to this headline">#</a></h3>
 <p>Under the hood, sets are implemented using hash tables. This means when we want to check if an element is a member of a set (ie. lookup), this operation is faster versus a similar membership check in a list.</p>
 <p>Source: https://stackoverflow.com/questions/8929284/what-makes-sets-faster-than-lists/8929445</p>
 <div class="cell docutils container">
@@ -572,7 +602,7 @@
 </div>
 </section>
 <section id="budget-load-balancer">
-<h3>Budget load balancer<a class="headerlink" href="#budget-load-balancer" title="Permalink to this headline">¶</a></h3>
+<h3>Budget load balancer<a class="headerlink" href="#budget-load-balancer" title="Permalink to this headline">#</a></h3>
 <p>1 of Set’s properties is that it’s elements are always unordered, and this is usually seen as a disadvantage. In fact, it’s surprising that Set actually has a <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method that is usually reserved for ordered data structures. When you call <code class="docutils literal notranslate"><span class="pre">pop()</span></code> on a set, it removes a random element. I used to think that was a pretty useless method, until I read this <a class="reference external" href="https://stackoverflow.com/questions/19378718/python-whats-the-use-case-for-set-pop">StackOverflow post</a>.</p>
 <p>Amusingly, this random removal of an element works surprisingly well to create a simple load balancer.</p>
 <div class="cell docutils container">
@@ -604,7 +634,8 @@ Jobs done!
 </section>
 
 <div class="section">
-     
+    
+
 <div class="section">
   <span style="float: left">
      
@@ -628,27 +659,41 @@ Jobs done!
   
 </div>
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
-  
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-<footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-          This blog is created using <a href="http://sphinx-doc.org/">Sphinx</a> and the tools from <a href="https://executablebooks.org/en/latest/">The Executable Book Project</a>.<br/>
-      </p>
-    </div>
-  </footer>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright .<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
   </body>
 </html>
